@@ -123,7 +123,7 @@ _islinux=false
 _isosx=false
 [[ "$(uname -s)" =~ Darwin ]] && _isosx=true
 _isbioinf=false
-[[ "$(hostname -s)" =~ fbtserver ]] && _isbioinf=true
+[[ "$(hostname -s)" =~ fbtserver|s-sdi-calc1-p ]] && _isbioinf=true
 [[ "$(whoami)" =~ jlr ]] && _isbioinf=true
 
 # Linux
@@ -151,7 +151,7 @@ if $_islinux; then
 	
 	# Different colors for different hosts
 	_isbioinf=false
-	[[ "$(hostname -s)" =~ srv-1-ux-calc01 ]] || [[ "$(hostname -s)" =~ fbtserver ]] && _isbioinf=true
+	[[ "$(hostname -s)" =~ srv-1-ux-calc01|s-sdi-calc1-p ]] && _isbioinf=true
 	STARTFGCOLOR='\[\e[01;33m\]'
 	if $_isbioinf; then
 	    STARTFGCOLOR='\[\e[01;32m\]'
@@ -175,7 +175,7 @@ fi
 
 #Bioinf
 if $_isbioinf; then
-    export SRST2_SAMTOOLS='/usr/local/bin/samtools18'
+    export SRST2_SAMTOOLS='/usr/local/bin/samtools18' #FIXME
 fi
 
 # Mac OS X

@@ -17,7 +17,7 @@
 #fi
 
 _isbioinf=false
-[[ "$(hostname -s)" =~ fbtserver ]] && _isbioinf=true
+[[ "$(hostname -s)" =~ fbtserver|s-sdi-calc1-p ]] && _isbioinf=true
 [[ "$(whoami)" =~ jlr ]] && _isbioinf=true
 _islinux=false
 [[ "$(uname -s)" =~ Linux|GNU|GNU/* ]] && _islinux=true
@@ -42,6 +42,18 @@ if $_isosx; then
     export PATH=/usr/local/bin:$PATH
 fi
 
-if $_isbioinf; then
-    $HOME/.dropbox-dist/dropboxd & 2> /dev/null
+#if $_isbioinf; then
+#   # $HOME/.dropbox-dist/dropboxd & 2> /dev/null
+#fi
+
+if [[ "$(hostname -s)" =~ s-sdi-calc1-p ]]; then
+
+   PATH=$PATH:/opt/bin:/opt/brew/bin:/opt/brew/sbin:$HOME/.local/bin:$HOME/bin
+
+   # LANGUAGE
+   export LANG=en_US.UTF-8:$LANG
+   export LC_ALL=en_US.UTF-8 
+
+   # PERL modules
+   eval "$(perl -I/opt/lib/perl5/lib/perl5 -Mlocal::lib=/opt/lib/perl5/)"
 fi

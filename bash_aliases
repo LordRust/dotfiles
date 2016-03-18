@@ -1,5 +1,5 @@
 _isbioinf=false
-[[ "$(hostname -s)" =~ fbtserver ]] && _isbioinf=true
+[[ "$(hostname -s)" =~ fbtserver|s-sdi-calc1-p ]] && _isbioinf=true
 [[ "$(whoami)" =~ jlr ]] && _isbioinf=true
 _islinux=false
 [[ "$(uname -s)" =~ Linux|GNU|GNU/* ]] && _islinux=true
@@ -39,20 +39,18 @@ fi
 
 # host specific aliases
 if $_isbioinf; then
-	#alias clc='/home/clcgenomics/CLCGenomicsWorkbench7/clcgenomicswb7'
 	alias rmiseq='rdesktop -u sbsuser -d HWI-M01940 -p sbs123 -r clipboard:PRIMARYCLIPBOARD -C -a 8 -g 1280x1024 10.30.6.40'
 	alias rlicserv='rdesktop -u typning -d SSI -p typning2 -r clipboard:PRIMARYCLIPBOARD -g 1280x1024 MI-LICSERV-01'
-	alias fastqc='$HOME/bin/fastqc'
 	alias sw='/usr/local/bin/seaview'
 	alias psj='ps -ajHfujlr|less'
 	alias srvbion='ssh -X -p 2222 jlr@172.16.0.47'
 	alias srvsshclc='ssh -X clcgenomics@172.16.0.22'
-	alias srvmnt='sshfs -o idmap=user $USER@172.16.0.22:/home/jlr ~/bioinf_server'
+#	alias srvmnt='sshfs -o idmap=user $USER@172.16.0.22:/home/jlr ~/bioinf_server'
 	alias srvssh='ssh -X jlr@172.16.0.22'
-	alias srvumnt='fusermount -u ~/bioinf_server'
+#	alias srvumnt='fusermount -u ~/bioinf_server'
 	alias srvnew='ssh -X jlr@s-sdi-calc1-p.sst.dk'
 	alias sftpliseq='sftp liseq@194.74.226.172:443'
-	alias twix='/home/MPV/repos/production/ssi_scripts/twix/twix.py'
+#	alias twix='/home/MPV/repos/production/ssi_scripts/twix/twix.py'
 fi
 
 if $_isosx; then

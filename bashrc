@@ -175,7 +175,10 @@ fi
 
 #Bioinf
 if $_isbioinf; then
-    export SRST2_SAMTOOLS='/usr/local/bin/samtools18' #FIXME
+    export SRST2_SAMTOOLS='/opt/bin/samtools-0.1.18'
+    export SRST2_BOWTIE2='/opt/bin/bowtie2-2.2.4'
+    export SRST2_BOWTIE2_BUILD='/opt/bin/bowtie2-build-2.2.4'
+    export R_LIBS_USER='/opt/libs/R'
 fi
 
 # Mac OS X

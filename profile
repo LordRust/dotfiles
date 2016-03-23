@@ -48,7 +48,7 @@ fi
 
 if [[ "$(hostname -s)" =~ s-sdi-calc1-p ]]; then
 
-   PATH=$PATH:/opt/bin:/opt/brew/bin:/opt/brew/sbin:$HOME/.local/bin:$HOME/bin
+   PATH=$PATH:$HOME/byobu/bin:/opt/bin:/opt/brew/bin:/opt/brew/sbin:$HOME/.local/bin:$HOME/bin
 
    # LANGUAGE
    export LANG=en_US.UTF-8:$LANG

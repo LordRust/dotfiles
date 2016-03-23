@@ -34,7 +34,7 @@ if $_islinux; then
 	alias pdf2png='parallel "convert -verbose -density 150 -trim {} -quality 100 -sharpen 0x1.0 {.}.png" :::'
 	alias aptupdate='sudo apt-get update && sudo apt-get upgrade'
 	alias vboxfix='killall VBoxClient;VBoxClient-all'
-	alias ct='columns -t'
+	alias ct='column -t'
 fi
 
 # host specific aliases

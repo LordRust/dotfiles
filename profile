@@ -65,3 +65,4 @@ if [[ "$(hostname -s)" =~ s-sdi-calc1-p ]]; then
    # PERL modules
    eval "$(perl -I/opt/lib/perl5/lib/perl5 -Mlocal::lib=/opt/lib/perl5/)"
 fi
+

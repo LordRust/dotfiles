@@ -16,6 +16,10 @@
 #    fi
 #fi
 
+# Always loaded environment variables
+export PAGER=less
+export LESS='iMn'
+
 _isbioinf=false
 [[ "$(hostname -s)" =~ fbtserver|s-sdi-calc1-p ]] && _isbioinf=true
 [[ "$(whoami)" =~ jlr ]] && _isbioinf=true
@@ -34,7 +38,7 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-# host specific aliases
+# host specific variables
 if $_isosx; then
     # Set architecture flags
     export ARCHFLAGS="-arch x86_64"
@@ -42,9 +46,13 @@ if $_isosx; then
     export PATH=/usr/local/bin:$PATH
 fi
 
-#if $_isbioinf; then
+if $_isbioinf; then
 #   # $HOME/.dropbox-dist/dropboxd & 2> /dev/null
-#fi
+    export SRST2_SAMTOOLS='/opt/bin/samtools-0.1.18'
+    export SRST2_BOWTIE2='/opt/bin/bowtie2-2.2.4'
+    export SRST2_BOWTIE2_BUILD='/opt/bin/bowtie2-build-2.2.4'
+    export R_LIBS_USER='/opt/libs/R'
+fi
 
 if [[ "$(hostname -s)" =~ s-sdi-calc1-p ]]; then
 

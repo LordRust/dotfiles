@@ -10,9 +10,6 @@ esac
 
 # remove XON/XOFF
    stty -ixon
-	
-export PAGER=less
-export LESS='iMn'
 
 
 ###########
@@ -174,9 +171,8 @@ if $_islinux; then
 fi
 
 #Bioinf
-if $_isbioinf; then
-    export SRST2_SAMTOOLS='/usr/local/bin/samtools18' #FIXME
-fi
+#if $_isbioinf; then
+#fi
 
 # Mac OS X
 if $_isosx; then

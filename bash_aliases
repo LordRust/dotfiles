@@ -65,8 +65,9 @@ if $_isosx; then
 	alias sshtv='ssh root@Apple-TV.local'
 	alias sshretropi='ssh pi@192.168.1.98' #raspberry
 	alias sshosmc='ssh osmc@192.168.1.98' #OSMC
+	alias sshssi='ssh -X -o ProxyCommand="ssh -W %h:%p osmc@cloud8.se" -p 19998 -l jlr localhost'
 
-	alias em='~/Applications/Emacs.app/Contents/MacOS/Emacs'
-	alias emn='~/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
+	alias em='/opt/homebrew-cask/Caskroom/emacs-mac/emacs-24.5-z-mac-5.7/Emacs.app/Contents/MacOS/Emacs.sh'
+	alias emn='/opt/homebrew-cask/Caskroom/emacs-mac/emacs-24.5-z-mac-5.7/Emacs.app/Contents/MacOS/Emacs.sh -nw'
 	alias finddisplay='ioreg -lw0 | grep IODisplayEDID | sed "/[^<]*</s///" | xxd -p -r | strings -6'
 fi

@@ -56,7 +56,9 @@ fi
 
 if [[ "$(hostname -s)" =~ s-sdi-calc1-p ]]; then
 
-   PATH=$HOME/byobu/bin:$PATH:/opt/bin:/opt/brew/bin:/opt/brew/sbin:$HOME/.local/bin:$HOME/bin
+#   PATH=$HOME/byobu/bin:$PATH:/opt/bin:/opt/brew/bin:/opt/brew/sbin:$HOME/.local/bin:$HOME/bin
+   PATH=$PATH:/opt/bin:/opt/brew/bin:/opt/brew/sbin:$HOME/.local/bin:$HOME/bin
+   export BYOBU_PREFIX=$(brew --prefix)
 
    # LANGUAGE
    export LANG=en_US.UTF-8:$LANG

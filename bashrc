@@ -198,7 +198,7 @@ if $_isosx; then
 
 	export PS1="$STARTFGCOLOR$STARTBGCOLOR\u$ENDCOLOR@\h \w\$ "
 
-	export EDITOR='/Applications/Emacs.app/Contents/MacOS/Emacs -nw' 
+	export EDITOR='/opt/homebrew-cask/Caskroom/emacs-mac/emacs-24.5-z-mac-5.7/Emacs.app/Contents/MacOS/Emacs.sh -nw'
 	export VISUAL=$EDITOR
 	
 	export BYOBU_PREFIX=$(brew --prefix)

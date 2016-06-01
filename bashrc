@@ -172,6 +172,7 @@ fi
 
 #Bioinf
 #if $_isbioinf; then
+    export EDITOR='emacs -nw'
 #fi
 
 # Mac OS X

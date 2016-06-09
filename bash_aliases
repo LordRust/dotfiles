@@ -41,7 +41,7 @@ fi
 if $_isbioinf; then
 	alias rmiseq='rdesktop -u sbsuser -d HWI-M01940 -p sbs123 -r clipboard:PRIMARYCLIPBOARD -C -a 8 -g 1280x1024 10.30.6.40'
 	alias rlicserv='rdesktop -u typning -d SSI -p typning2 -r clipboard:PRIMARYCLIPBOARD -g 1280x1024 MI-LICSERV-01'
-	alias sw='/usr/local/bin/seaview'
+	alias sw='seaview -lengths'
 	alias psj='ps -ajHfujlr|less'
 	alias srvbion='ssh -X -p 2222 jlr@172.16.0.47'
 	alias srvsshclc='ssh -X clcgenomics@172.16.0.22'

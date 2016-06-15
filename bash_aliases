@@ -67,7 +67,7 @@ if $_isosx; then
 	alias sshosmc='ssh osmc@cloud8.se' #OSMC
 	alias sshssi='ssh -X -o ProxyCommand="ssh -W %h:%p osmc@cloud8.se" -p 19998 -l jlr localhost'
 
-	alias em='/opt/homebrew-cask/Caskroom/emacs-mac/emacs-24.5-z-mac-5.7/Emacs.app/Contents/MacOS/Emacs.sh'
-	alias emn='/opt/homebrew-cask/Caskroom/emacs-mac/emacs-24.5-z-mac-5.7/Emacs.app/Contents/MacOS/Emacs.sh -nw'
+	alias em='emacs'
+	alias emn='emacs -nw'
 	alias finddisplay='ioreg -lw0 | grep IODisplayEDID | sed "/[^<]*</s///" | xxd -p -r | strings -6'
 fi

@@ -21,7 +21,7 @@ export PAGER=less
 export LESS='iMn'
 
 _isbioinf=false
-[[ "$(hostname -s)" =~ fbtserver|s-sdi-calc1-p ]] && _isbioinf=true
+[[ "$(hostname -s)" =~ fbtserver|s-sdi-calc[1..2]-p ]] && _isbioinf=true
 [[ "$(whoami)" =~ jlr ]] && _isbioinf=true
 _islinux=false
 [[ "$(uname -s)" =~ Linux|GNU|GNU/* ]] && _islinux=true

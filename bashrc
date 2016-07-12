@@ -120,7 +120,7 @@ _islinux=false
 _isosx=false
 [[ "$(uname -s)" =~ Darwin ]] && _isosx=true
 _isbioinf=false
-[[ "$(hostname -s)" =~ fbtserver|s-sdi-calc1-p ]] && _isbioinf=true
+[[ "$(hostname -s)" =~ fbtserver|s-sdi-calc[1..2]-p ]] && _isbioinf=true
 [[ "$(whoami)" =~ jlr ]] && _isbioinf=true
 
 # Linux
@@ -173,6 +173,7 @@ fi
 #Bioinf
 #if $_isbioinf; then
     export EDITOR='emacs -nw'
+    export ME='jlr'
 #fi
 
 # Mac OS X

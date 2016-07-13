@@ -1,5 +1,5 @@
 _isbioinf=false
-[[ "$(hostname -s)" =~ fbtserver|s-sdi-calc1-p ]] && _isbioinf=true
+[[ "$(hostname -s)" =~ fbtserver|s-sdi-calc[1..5]-p ]] && _isbioinf=true
 [[ "$(whoami)" =~ jlr ]] && _isbioinf=true
 _islinux=false
 [[ "$(uname -s)" =~ Linux|GNU|GNU/* ]] && _islinux=true
@@ -24,8 +24,8 @@ alias df='df -h'
 
 # platform specific aliases
 if $_islinux; then
-	alias emn='emacs -nw'
-	alias em='emacs'
+	alias em='emacs -nw'
+	alias emw='emacs'
 	alias compc='compgen -A function -abck|grep'
 	alias ls='ls -CF --color=auto'
 	alias parallel='parallel --gnu'

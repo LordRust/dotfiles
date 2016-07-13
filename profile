@@ -48,54 +48,39 @@ fi
 
 if $_isbioinf; then
 #   # $HOME/.dropbox-dist/dropboxd & 2> /dev/null
-#    export SRST2_SAMTOOLS='/tools/bin/samtools-0.1.18'
-#    export SRST2_BOWTIE2='/tools/bin/bowtie2-2.2.4'
-#    export SRST2_BOWTIE2_BUILD='/tools/bin/bowtie2-build-2.2.4'
-#    export R_LIBS_USER='/tools/libs/R'
-    export SRST2_SAMTOOLS='/opt/bin/samtools-0.1.18'
-    export SRST2_BOWTIE2='/opt/bin/bowtie2-2.2.4'
-    export SRST2_BOWTIE2_BUILD='/opt/bin/bowtie2-build-2.2.4'
-    export R_LIBS_USER='/opt/libs/R'
+echo
 fi
 
 if [[ "$(hostname -s)" =~ s-sdi-calc[1..2]-p ]]; then
 
-#   PATH=$HOME/byobu/bin:$PATH:/opt/bin:/opt/brew/bin:/opt/brew/sbin:$HOME/.local/bin:$HOME/bin
-#   PATH=/tools/bin:/tools/brew/bin:/tools/brew/sbin:$HOME/.local/bin:$HOME/bin:$PATH
-#   PATH=/opt/bin:/opt/brew/bin:/opt/brew/sbin:$HOME/.local/bin:$HOME/bin:$PATH
-
-   # LANGUAGE
-   export LANG=en_US.UTF-8:$LANG
-   export LC_ALL=en_US.UTF-8 
-
-   # PERL modules
-#   eval "$(perl -I/tools/lib/perl5/lib/perl5 -Mlocal::lib=/tools/lib/perl5/)"
-#   eval "$(perl -I/opt/lib/perl5/lib/perl5 -Mlocal::lib=/opt/lib/perl5/)"
 # User specific environment and startup programs
 
-OPT=/opt/bin
-BREW=/opt/brew/bin:/opt/brew/sbin
+TOOLS=/opt
+TOOLSBIN=${TOOLS}/bin
+BREW=${TOOLS}/brew/bin:${TOOLS}/brew/sbin
 HOMEBINS=${HOME}/.local/bin:${HOME}/bin
 SYSPATH=$PATH
 
-export PATH=${SYSPATH}:${OPT}:${BREW}:${HOMEBINS}
+export PATH=${SYSPATH}:${TOOLSBIN}:${BREW}:${HOMEBINS}
+alias brewpaths="export PATH=${BREW}:${SYSPATH}:${TOOLSBIN}:${HOMEBINS}"
+alias normalpath="export PATH=${SYSPATH}:${TOOLSBIN}:${BREW}:${HOMEBINS}"
 
 #R libraries
-export R_LIBS_USER=/opt/lib/R
+export R_LIBS_USER=${TOOLS}/lib/R
 
 #Language
 export LANG=${LANG}:en_US.UTF-8
 export LC_ALL=en_US.UTF-8 
 
 #Python libraries
-export PYTHONPATH=${PYTHONPATH}:/opt/git.repositories/LS-BSR
+export PYTHONPATH=${PYTHONPATH}:${TOOLS}/git.repositories/LS-BSR
 
 #PERL modules
-eval "$(perl -I/opt/lib/perl5/lib/perl5 -Mlocal::lib=/opt/lib/perl5/)"
+eval "$(perl -I${TOOLS}/lib/perl5/lib/perl5 -Mlocal::lib=${TOOLS}/lib/perl5/)"
 
-export SRST2_SAMTOOLS=/opt/bin/samtools-0.1.19
-export SRST2_BOWTIE2=/opt/bin/bowtie2-2.2.4
-export SRST2_BOWTIE2_BUILD=/opt/bin/bowtie2-build-2.2.4
+export SRST2_SAMTOOLS=${TOOLS}/bin/samtools-0.1.18
+export SRST2_BOWTIE2=${TOOLS}/bin/bowtie2-2.2.4
+export SRST2_BOWTIE2_BUILD=${TOOLS}/bin/bowtie2-build-2.2.4
 
 export BYOBU_PREFIX=$(brew --prefix)
 

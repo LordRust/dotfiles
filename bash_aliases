@@ -35,6 +35,18 @@ if $_islinux; then
 	alias aptupdate='sudo apt-get update && sudo apt-get upgrade'
 	alias vboxfix='killall VBoxClient;VBoxClient-all'
 	alias ct='column -t'
+	function pidtime()
+	{
+   	for i in "$@"
+   	do
+		for j in $(pidof $i)
+      		do
+			echo
+         		echo $i pid $j
+      			ps -p $j -o etime
+      		done
+   	done
+	}
 fi
 
 # host specific aliases

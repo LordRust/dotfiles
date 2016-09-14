@@ -55,6 +55,7 @@ if [[ "$(hostname -s)" =~ s-sdi-calc[1..2]-p ]]; then
 
 # User specific environment and startup programs
 
+export HOMEBREW_GITHUB_API_TOKEN=a04f9a35e9271724e0e9b0355aa849708d4896de
 TOOLS=/opt
 TOOLSBIN=${TOOLS}/bin
 BREW=${TOOLS}/brew/bin:${TOOLS}/brew/sbin

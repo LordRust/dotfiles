@@ -13,12 +13,16 @@
  ;; If there is more than one, they won't work right.
  )
 
+;; Emable column number in status line
+(setq column-number-mode t)
 ;; enable line wrap
 (setq default-truncate-lines nil)
 ;; make side by side buffers function the same as the main window
 (setq truncate-partial-width-windows nil)
 ;; Add F12 to toggle line wrap
-(global-set-key (kbd "<f12>") 'toggle-truncate-lines)
+;; (global-set-key (kbd "<f12>") 'toggle-truncate-lines)
+(defun trunc()
+  (toggle-truncate-lines))
 ;; Scroll single lines  up or down
 (defun scroll-up-one-line()
   (interactive)

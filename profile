@@ -56,13 +56,14 @@ if [[ "$(hostname -s)" =~ s-sdi-calc[1..2]-p ]]; then
 # User specific environment and startup programs
 
 export HOMEBREW_GITHUB_API_TOKEN=a04f9a35e9271724e0e9b0355aa849708d4896de
-TOOLS=/opt
+TOOLS=/tools
 TOOLSBIN=${TOOLS}/bin
 BREW=${TOOLS}/brew/bin:${TOOLS}/brew/sbin
-HOMEBINS=${HOME}/.local/bin:${HOME}/bin
+#HOMEBINS=${HOME}/.local/bin:${HOME}/bin
 SYSPATH=$PATH
 
-export PATH=${SYSPATH}:${TOOLSBIN}:${BREW}:${HOMEBINS}
+#export PATH=${SYSPATH}:${TOOLSBIN}:${BREW}:${HOMEBINS}
+export PATH=${BREW}:${SYSPATH}:${TOOLSBIN}:${HOMEBINS}
 alias brewpaths="export PATH=${BREW}:${SYSPATH}:${TOOLSBIN}:${HOMEBINS}"
 alias normalpath="export PATH=${SYSPATH}:${TOOLSBIN}:${BREW}:${HOMEBINS}"
 

@@ -58,12 +58,12 @@ if [[ "$(hostname -s)" =~ s-sdi-calc[1..2]-p ]]; then
 export HOMEBREW_GITHUB_API_TOKEN=a04f9a35e9271724e0e9b0355aa849708d4896de
 TOOLS=/tools
 TOOLSBIN=${TOOLS}/bin
-BREW=${TOOLS}/brew/bin:${TOOLS}/brew/sbin
+BREW=${TOOLS}/linuxbrew/bin:${TOOLS}/linuxbrew/sbin
 #HOMEBINS=${HOME}/.local/bin:${HOME}/bin
 SYSPATH=$PATH
 
 #export PATH=${SYSPATH}:${TOOLSBIN}:${BREW}:${HOMEBINS}
-export PATH=${BREW}:${SYSPATH}:${TOOLSBIN}:${HOMEBINS}
+export PATH=${BREW}:${TOOLSBIN}:${SYSPATH}:${HOMEBINS}
 alias brewpaths="export PATH=${BREW}:${SYSPATH}:${TOOLSBIN}:${HOMEBINS}"
 alias normalpath="export PATH=${SYSPATH}:${TOOLSBIN}:${BREW}:${HOMEBINS}"
 
@@ -84,6 +84,6 @@ export SRST2_SAMTOOLS=${TOOLS}/bin/samtools-0.1.18
 export SRST2_BOWTIE2=${TOOLS}/bin/bowtie2-2.2.4
 export SRST2_BOWTIE2_BUILD=${TOOLS}/bin/bowtie2-build-2.2.4
 
-export BYOBU_PREFIX=$(brew --prefix)
+#export BYOBU_PREFIX=$(brew --prefix)
 
 fi

@@ -13,7 +13,7 @@ _isxrunning=false
 alias s='cd ..'
 alias ll='ls -alFh'
 alias la='ls -A'
-alias l='ls -CF'
+alias l='ls -Cp'
 
 alias sshl='ssh -Y zappa@lucifer.df.lth.se'
 alias sshskalman='ssh -Y zappa@skalman.df.lth.se'

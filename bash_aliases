@@ -55,13 +55,8 @@ if $_isbioinf; then
 	alias sw='seaview -lengths'
 	alias psj='ps -ajHfujlr|less'
 	alias srvbion='ssh -X -p 2222 jlr@172.16.0.47'
-	alias srvsshclc='ssh -X clcgenomics@172.16.0.22'
-#	alias srvmnt='sshfs -o idmap=user $USER@172.16.0.22:/home/jlr ~/bioinf_server'
-	alias srvssh='ssh -X jlr@172.16.0.22'
-#	alias srvumnt='fusermount -u ~/bioinf_server'
-	alias srvnew='ssh -X jlr@s-sdi-calc1-p.ssi.ad'
+	alias sshcalc1='ssh -X jlr@s-sdi-calc1-p.ssi.ad'
 	alias sftpliseq='sftp liseq@194.74.226.172:443'
-#	alias twix='/home/MPV/repos/production/ssi_scripts/twix/twix.py'
 fi
 
 if $_isosx; then

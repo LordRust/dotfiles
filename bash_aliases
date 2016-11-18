@@ -56,6 +56,7 @@ if $_isbioinf; then
 	alias psj='ps -ajHfujlr|less'
 	alias srvbion='ssh -X -p 2222 jlr@172.16.0.47'
 	alias sshcalc1='ssh -X jlr@s-sdi-calc1-p.ssi.ad'
+	alias sshcalc2='ssh -X jlr@s-sdi-calc2-p.ssi.ad'
 	alias sftpliseq='sftp liseq@194.74.226.172:443'
 fi
 

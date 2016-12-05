@@ -58,6 +58,9 @@ if $_isbioinf; then
 	alias sshcalc1='ssh -X jlr@s-sdi-calc1-p.ssi.ad'
 	alias sshcalc2='ssh -X jlr@s-sdi-calc2-p.ssi.ad'
 	alias sftpliseq='sftp liseq@194.74.226.172:443'
+	alias nasp='module unload nasp ; module load nasp ; nasp'
+	alias squeue='squeue -o "%.7i %.9P %.50j %.8u %.2t %.10M %.6D %R %m %c"'
+	alias srst2='module unload srst2 ;  module load srst2 ; srst2'
 fi
 
 if $_isosx; then

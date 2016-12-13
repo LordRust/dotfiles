@@ -35,6 +35,7 @@ if $_islinux; then
 	alias aptupdate='sudo apt-get update && sudo apt-get upgrade'
 	alias vboxfix='killall VBoxClient;VBoxClient-all'
 	alias ct='column -t'
+	alias go='gnome-open'
 	function pidtime()
 	{
    	for i in "$@"

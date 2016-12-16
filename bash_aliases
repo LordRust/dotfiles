@@ -19,6 +19,7 @@ alias sshl='ssh -Y zappa@lucifer.df.lth.se'
 alias sshskalman='ssh -Y zappa@skalman.df.lth.se'
 alias sshelaine='ssh -Y zappa@elaine.df.lth.se'
 alias sshp='ssh zappa@pucko.df.lth.se'
+alias sshssi='ssh -X -o ProxyCommand="ssh -W %h:%p osmc@cloud8.se" -p 19998 -l jlr localhost'
 	
 alias df='df -h'	
 
@@ -76,7 +77,6 @@ if $_isosx; then
 	alias sshtv='ssh root@Apple-TV.local'
 	alias sshretropi='ssh pi@192.168.1.98' #raspberry
 	alias sshosmc='ssh osmc@cloud8.se' #OSMC
-	alias sshssi='ssh -X -o ProxyCommand="ssh -W %h:%p osmc@cloud8.se" -p 19998 -l jlr localhost'
 
 	alias em='emacs'
 	alias emn='emacs -nw'

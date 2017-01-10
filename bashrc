@@ -125,6 +125,7 @@ _isbioinf=false
 
 # Linux
 if $_islinux; then
+	export TERM=screen-256color
 	# set a fancy prompt (non-color, unless we know we "want" color)
 	case "$TERM" in
 		xterm-color) color_prompt=yes;;

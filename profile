@@ -85,5 +85,5 @@ export SRST2_BOWTIE2=${TOOLS}/bin/bowtie2-2.2.4
 export SRST2_BOWTIE2_BUILD=${TOOLS}/bin/bowtie2-build-2.2.4
 
 #export BYOBU_PREFIX=$(brew --prefix)
-
+export TZ="Europe/Copenhagen"
 fi

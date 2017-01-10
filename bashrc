@@ -32,6 +32,7 @@ HISTFILESIZE=20000
 ####################
 ## Tab completions #
 ####################
+export PKG_CONFIG_PATH=/usr/share/pkgconfig:$PKG_CONFIG_PATH
 # tab loops through alternatives
 # Windows style
 [[ $- = *i* ]] && bind TAB:menu-complete

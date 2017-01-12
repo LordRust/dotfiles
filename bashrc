@@ -174,6 +174,7 @@ fi
 #Bioinf
 #if $_isbioinf; then
     export EDITOR='emacs -nw'
+    export VISUAL=$EDITOR
     export ME='jlr'
 #fi
 

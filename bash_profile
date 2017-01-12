@@ -117,7 +117,7 @@ if [ -n "pathvar_name" ]; then
     esac
     old_PATH=${old_PATH#*:}
   done
-  export $pathvar_name=${pathvar_value#:}
+  set_var $pathvar_name ${pathvar_value#:}
   unset pathvar_value old_PATH x
 fi
 }

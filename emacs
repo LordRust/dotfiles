@@ -23,9 +23,6 @@
 (global-set-key (kbd "<f12>") 'toggle-truncate-lines)
 (defun trunc()
   (toggle-truncate-lines))
-;; redefine home and end whoch mysteriously stopped working
-;;(global-set-key (kbd "M-o h") 'beginning-of-line)
-;;(global-set-key (kbd "M-o f") 'end-of-line)
 ;; Scroll single lines  up or down
 (defun scroll-up-one-line()
   (interactive)

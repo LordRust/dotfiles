@@ -37,6 +37,7 @@ if $_islinux; then
 	alias vboxfix='killall VBoxClient;VBoxClient-all'
 	alias ct='column -t'
 	alias go='gnome-open'
+	alias tmux="TERM=screen-256color tmux"
 	function pidtime()
 	{
    	for i in "$@"

@@ -57,25 +57,12 @@ if $_isosx; then
 fi
 
 if $_isbioinf; then
-#   # $HOME/.dropbox-dist/dropboxd & 2> /dev/null
-echo
+:
 fi
 
 if [[ "$(hostname -s)" =~ s-sdi-calc[1..2]-p ]]; then
 
-# User specific environment and startup programs
-
 export HOMEBREW_GITHUB_API_TOKEN=a04f9a35e9271724e0e9b0355aa849708d4896de
-TOOLS=/tools
-# TOOLSBIN=${TOOLS}/bin
-# BREW=${TOOLS}/linuxbrew/bin:${TOOLS}/linuxbrew/sbin
-# #HOMEBINS=${HOME}/.local/bin:${HOME}/bin
-# SYSPATH=$PATH
-
-# #export PATH=${SYSPATH}:${TOOLSBIN}:${BREW}:${HOMEBINS}
-# export PATH=${BREW}:${TOOLSBIN}:${SYSPATH}:${HOMEBINS}
-# alias brewpaths="export PATH=${BREW}:${SYSPATH}:${TOOLSBIN}:${HOMEBINS}"
-# alias normalpath="export PATH=${SYSPATH}:${TOOLSBIN}:${BREW}:${HOMEBINS}"
 
 #R libraries
 export R_LIBS_USER=${TOOLS}/lib/R
@@ -87,16 +74,9 @@ export LC_ALL=en_US.UTF-8
 #Python libraries
 #export PYTHONPATH=${PYTHONPATH}:${TOOLS}/git.repositories/LS-BSR
 
-#PERL modules
-#eval "$(perl -I${TOOLS}/lib/perl5/lib/perl5 -Mlocal::lib=${TOOLS}/lib/perl5/)"
-
-#export SRST2_SAMTOOLS=${TOOLS}/bin/samtools-0.1.18
-#export SRST2_BOWTIE2=${TOOLS}/bin/bowtie2-2.2.4
-#export SRST2_BOWTIE2_BUILD=${TOOLS}/bin/bowtie2-build-2.2.4
-
-#export BYOBU_PREFIX=$(brew --prefix)
 export TZ="Europe/Copenhagen"
 
+## Deduplicate PATHs 
 get_var () {
     eval 'printf "%s\n" "${'"$1"'}"'
 }
@@ -117,7 +97,7 @@ if [ -n "pathvar_name" ]; then
     esac
     old_PATH=${old_PATH#*:}
   done
-  set_var $pathvar_name ${pathvar_value#:}
+  set_var $pathvar_name ${pathvar_value#:}	#strip the leading colon
   unset pathvar_value old_PATH x
 fi
 }

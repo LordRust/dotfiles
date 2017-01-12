@@ -97,55 +97,33 @@ export LC_ALL=en_US.UTF-8
 #export BYOBU_PREFIX=$(brew --prefix)
 export TZ="Europe/Copenhagen"
 
+get_var () {
+    eval 'printf "%s\n" "${'"$1"'}"'
+}
+set_var () {
+    eval "$1=\"\$2\""
+}
 
-if [ -n "$PATH" ]; then
-  old_PATH=$PATH:; PATH=
+cleanpath () {
+pathvar_name="$1"
+if [ -n "pathvar_name" ]; then
+  pathvar_value=
+  old_PATH="$(get_var "$pathvar_name"):"
   while [ -n "$old_PATH" ]; do
     x=${old_PATH%%:*}       # the first remaining entry
-    case $PATH: in
+    case $pathvar_value: in
       *:"$x":*) ;;         # already there
-      *) PATH=$PATH:$x;;    # not there yet
+      *) pathvar_value=$pathvar_value:$x;;    # not there yet
     esac
     old_PATH=${old_PATH#*:}
   done
-  PATH=${PATH#:}
-  unset old_PATH x
+  export $pathvar_name=${pathvar_value#:}
+  unset pathvar_value old_PATH x
 fi
-echo $PATH
-export PATH=$PATH
+}
 
-
-if [ -n "$INFOPATH" ]; then
-  old_PATH=$INFOPATH:; INFOPATH=
-  while [ -n "$old_PATH" ]; do
-    x=${old_PATH%%:*}       # the first remaining entry
-    case $INFOPATH: in
-      *:"$x":*) ;;         # already there
-      *) INFOPATH=$INFOPATH:$x;;    # not there yet
-    esac
-    old_PATH=${old_PATH#*:}
-  done
-  INFOPATH=${INFOPATH#:}
-  unset old_PATH x
-fi
-echo $INFOPATH
-export INFOPATH=$INFOPATH
-
-
-if [ -n "$MANPATH" ]; then
-  old_PATH=$MANPATH:; MANPATH=
-  while [ -n "$old_PATH" ]; do
-    x=${old_PATH%%:*}       # the first remaining entry
-    case $MANPATH: in
-      *:"$x":*) ;;         # already there
-      *) MANPATH=$MANPATH:$x;;    # not there yet
-    esac
-    old_PATH=${old_PATH#*:}
-  done
-  MANPATH=${MANPATH#:}
-  unset old_PATH x
-fi
-echo $MANPATH
-export MANPATH=$MANPATH
+cleanpath PATH
+cleanpath INFOPATH
+cleanpath MANPATH
 
 fi

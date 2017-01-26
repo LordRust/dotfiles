@@ -36,8 +36,10 @@ if $_islinux; then
 	alias aptupdate='sudo apt-get update && sudo apt-get upgrade'
 	alias vboxfix='killall VBoxClient;VBoxClient-all'
 	alias ct='column -t'
+	function ctt() { column -ts $'\t' "$@" | less -S ; }
 	alias go='gnome-open'
 	alias tmux="TERM=screen-256color tmux"
+	alias tmuxbusfix="source ~/bin/tmuxreconnect"
 	function pidtime()
 	{
    	for i in "$@"

@@ -37,6 +37,10 @@
 (setq default-truncate-lines nil)
 ;; make side by side buffers function the same as the main window
 (setq truncate-partial-width-windows nil)
+
+;; regexp
+(global-set-key (kbd "C-x C-r") 'replace-regexp)
+
 ;; Add F12 to toggle line wrap
 (global-set-key (kbd "<f12>") 'toggle-truncate-lines)
 (defun trunc()

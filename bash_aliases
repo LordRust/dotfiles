@@ -66,6 +66,7 @@ if $_isbioinf; then
 	alias sftpliseq='sftp liseq@194.74.226.172:443'
 	alias nasp='module unload nasp ; module load nasp ; nasp'
 #	alias squeue='squeue -o "%.7i %.9P %.50j %.8u %.2t %.10M %.6D %R %m %c"'
+	alias squeue='squeue -o "%8i %12u %.8M %30j %3t %12P %.5Q %.6m %2c %6E %13R" --sort=-S,p,i'
 	alias srst2='module unload srst2 ;  module load srst2 ; srst2'
 fi
 

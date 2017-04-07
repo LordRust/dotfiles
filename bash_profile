@@ -28,7 +28,7 @@ fi
 
 # Always loaded environment variables
 export PAGER=less
-export LESS='iMn'
+export LESS='iMnR'
 
 _isbioinf=false
 [[ "$(hostname -s)" =~ fbtserver|s-sdi-calc[1..2]-p ]] && _isbioinf=true

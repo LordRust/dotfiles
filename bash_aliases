@@ -63,6 +63,8 @@ if $_isbioinf; then
 	alias sshcalc1='ssh -Y jlr@s-sdi-calc1-p.ssi.ad'
 	alias sshcalc2='ssh -Y jlr@s-sdi-calc2-p.ssi.ad'
 	alias sshcalc3='ssh -Y jlr@s-sdi-calc3-p.ssi.ad'
+	alias sshcalc4='ssh -Y jlr@s-sdi-calc4-p.ssi.ad'
+	alias sshcalc5='ssh -Y jlr@s-sdi-calc5-p.ssi.ad'
 	alias sshce1='ssh -Y jlr@s-bionum-ce1-p'
 	alias sftpliseq='sftp liseq@194.74.226.172:443'
 	alias nasp='module unload nasp ; module load nasp ; nasp'

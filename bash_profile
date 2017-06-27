@@ -31,7 +31,7 @@ export PAGER=less
 export LESS='RiMn'
 
 _isbioinf=false
-[[ "$(hostname -s)" =~ fbtserver|s-sdi-calc[1..2]-p ]] && _isbioinf=true
+[[ "$(hostname -s)" =~ fbtserver|s-calc-fat01-p|s-sdi-calc[1..2]-p ]] && _isbioinf=true
 [[ "$(whoami)" =~ jlr ]] && _isbioinf=true
 _islinux=false
 [[ "$(uname -s)" =~ Linux|GNU|GNU/* ]] && _islinux=true
@@ -60,7 +60,7 @@ if $_isbioinf; then
 :
 fi
 
-if [[ "$(hostname -s)" =~ s-sdi-calc[1..2]-p ]]; then
+if [[ "$(hostname -s)" =~ s-calc-fat01-p ]]; then
 
 export HOMEBREW_GITHUB_API_TOKEN=a04f9a35e9271724e0e9b0355aa849708d4896de
 

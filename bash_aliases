@@ -60,6 +60,7 @@ if $_isbioinf; then
 	alias sw='seaview -lengths'
 	alias psj='ps -ajHfujlr|less'
 	alias srvbion='ssh -X -p 2222 jlr@172.16.0.47'
+	alias sshfat01='ssh -Y jlr@s-calc-fat01-p.ssi.ad'	
 	alias sshcalc1='ssh -Y jlr@s-sdi-calc1-p.ssi.ad'
 	alias sshcalc2='ssh -Y jlr@s-sdi-calc2-p.ssi.ad'
 	alias sshcalc3='ssh -Y jlr@s-sdi-calc3-p.ssi.ad'

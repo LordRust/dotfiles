@@ -23,8 +23,8 @@
 (package-initialize) ;; You might already have this line
 
 ;; Standard Jedi.el setting
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:complete-on-dot t)
+;;(add-hook 'python-mode-hook 'jedi:setup)
+;;(setq jedi:complete-on-dot t)
 
 ;; Type:
 ;;     M-x package-install RET jedi RET

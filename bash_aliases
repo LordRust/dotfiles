@@ -20,6 +20,7 @@ alias sshskalman='ssh -Y zappa@skalman.df.lth.se'
 alias sshelaine='ssh -Y zappa@elaine.df.lth.se'
 alias sshp='ssh zappa@pucko.df.lth.se'
 alias sshssi='ssh -X -o ProxyCommand="ssh -W %h:%p osmc@cloud8.se" -p 19998 -l jlr localhost'
+alias sshssi2='ssh -X -o ProxyCommand="ssh -p 8080 -W %h:%p osmc@cloud8.se" -Cc blowfish-cbc -p 19998 -l jlr localhost'
 	
 alias df='df -h'	
 

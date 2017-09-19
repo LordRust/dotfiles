@@ -44,9 +44,9 @@ _isxrunning=false
 complete -d cd
 
 # set PATH so it includes user's private bin if it exists
-#if [ -d "$HOME/bin" ] ; then
-#    PATH="$HOME/bin:$PATH"
-#fi
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
 
 # host specific variables
 if $_isosx; then

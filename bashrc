@@ -38,7 +38,7 @@ export PKG_CONFIG_PATH=/usr/share/pkgconfig:$PKG_CONFIG_PATH
 [[ $- = *i* ]] && bind TAB:menu-complete
 bind '"\e[Z": complete' #shift-tab to normal bash
 
-# 
+#
 set completion-prefix-display-length 2
 
 # Ignore case when tabbing
@@ -149,13 +149,13 @@ if $_islinux; then
 			color_prompt=
 		fi
 	fi
-	
+
 	# Different colors for different hosts
 	_isbioinf=false
 	[[ "$(hostname -s)" =~ srv-1-ux-calc01|s-calc-fat01-p ]] && _isbioinf=true
 	STARTFGCOLOR='\[\e[01;33m\]'
 	if $_isbioinf; then
-	    STARTFGCOLOR='\[\e[01;32m\]'
+		STARTFGCOLOR='\[\e[01;32m\]'
 	fi
 	if [ "$color_prompt" = yes ]; then
 		PS1="${debian_chroot:+($debian_chroot)}$STARTFGCOLOR\u@\h\[\033[00m\]: \[\033[01;34m\]\w\[\033[00m\]\$ "
@@ -203,7 +203,7 @@ if $_isosx; then
 
 	export EDITOR='/opt/homebrew-cask/Caskroom/emacs-mac/emacs-24.5-z-mac-5.7/Emacs.app/Contents/MacOS/Emacs.sh -nw'
 	export VISUAL=$EDITOR
-	
+
 	export BYOBU_PREFIX=$(brew --prefix)
 #	[ -r /Users/jonas/.byobu/prompt ] && . /Users/jonas/.byobu/prompt   #byobu-prompt# 
 fi

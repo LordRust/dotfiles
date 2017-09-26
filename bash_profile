@@ -39,6 +39,8 @@ _isosx=false
 [[ "$(uname -s)" =~ Darwin ]] && _isosx=true
 _isxrunning=false
 [[ -n "$DISPLAY" ]] && _isxrunning=true
+_ismobax=false
+[[ "$(whoami)" =~ 206515 ]] && _ismobax=true
 
 #always complete cd with directories only
 complete -d cd
@@ -58,6 +60,11 @@ fi
 
 if $_isbioinf; then
 :
+fi
+
+if $_ismobax; then
+   export LANG=en_US.UTF-8:${LANG}
+   export LANGUAGE=en_US.UTF-8:${LANGUAGE}
 fi
 
 if [[ "$(hostname -s)" =~ s-calc-fat01-p ]]; then

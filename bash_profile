@@ -41,6 +41,7 @@ _isxrunning=false
 [[ -n "$DISPLAY" ]] && _isxrunning=true
 _ismobax=false
 [[ "$(whoami)" =~ 206515 ]] && _ismobax=true
+[[ "$(uname -s)" =~ CYGWIN* ]] && _ismobax=true
 
 #always complete cd with directories only
 complete -d cd
@@ -63,8 +64,11 @@ if $_isbioinf; then
 fi
 
 if $_ismobax; then
-   export LANG=en_US.UTF-8:${LANG}
-   export LANGUAGE=en_US.UTF-8:${LANGUAGE}
+   # export LC_ALL=en_US.UTF-8:${LC_ALL}
+   # export LANG=en_US.UTF-8:${LANG}
+   export LANGUAGE=en
+   # export LOCAL=Een_US.UTF-8:${LOCALE}
+   # export LC_CTYPE=en_US.UTF-8:${LC_CTYPE}
 fi
 
 if [[ "$(hostname -s)" =~ s-calc-fat01-p ]]; then

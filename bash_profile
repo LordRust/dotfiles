@@ -39,8 +39,8 @@ _isosx=false
 [[ "$(uname -s)" =~ Darwin ]] && _isosx=true
 _isxrunning=false
 [[ -n "$DISPLAY" ]] && _isxrunning=true
-_ismobax=false
-[[ "$(whoami)" =~ 206515 ]] && _ismobax=true
+_iscygwin=false
+[[ "$(uname -s)" =~ CYGWIN ]] && _iscygwin=true
 
 #always complete cd with directories only
 complete -d cd
@@ -62,7 +62,7 @@ if $_isbioinf; then
 :
 fi
 
-if $_ismobax; then
+if $_iscygwin; then
    export LANG=en_US.UTF-8:${LANG}
    export LANGUAGE=en_US.UTF-8:${LANGUAGE}
 fi

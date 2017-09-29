@@ -7,7 +7,8 @@ _isosx=false
 [[ "$(uname -s)" =~ Darwin ]] && _isosx=true
 _isxrunning=false
 [[ -n "$DISPLAY" ]] && _isxrunning=true
-
+_iscygwin=false
+[[ "$(uname -s)" =~ CYGWIN ]] && _iscygwin=true
 
 # Aliases for all platforms
 alias s='cd ..'
@@ -25,7 +26,7 @@ alias sshssi2='ssh -X -o ProxyCommand="ssh -p 8080 -W %h:%p osmc@cloud8.se" -Cc 
 alias df='df -h'	
 
 # platform specific aliases
-if $_islinux; then
+if $_islinux|$_iscygwin ; then
 	alias em='emacs -nw'
 	alias emw='emacs'
 	alias compc='compgen -A function -abck|grep'

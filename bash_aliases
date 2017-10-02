@@ -28,7 +28,7 @@ alias sshssi2='ssh -X -o ProxyCommand="ssh -p 8080 -W %h:%p osmc@cloud8.se" -Cc 
 alias df='df -h'	
 
 # platform specific aliases
-if $_islinux|$_iscygwin ; then
+if $_islinux||$_iscygwin ; then
 	alias em='emacs -nw'
 	alias emw='emacs'
 	alias compc='compgen -A function -abck|grep'

@@ -32,7 +32,7 @@ if $_islinux|$_iscygwin ; then
 	alias em='emacs -nw'
 	alias emw='emacs'
 	alias compc='compgen -A function -abck|grep'
-	alias ls='ls -CF --color=auto'
+	alias ls='ls -vCF --color=auto'
 	alias parallel='parallel --gnu'
 	alias sem='sem --gnu'
 	alias gsed='sed'

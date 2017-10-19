@@ -61,6 +61,7 @@ fi
 # host specific aliases
 if $_iscmd; then
    alias sshlennart="ssh -Y jonas@MTLUCMDS1.lund.skane.se"
+   alias cdm="cd /data/bnf/proj/microbiology/"
 fi
 if $_isbioinf; then
 	alias rmiseq='rdesktop -u sbsuser -d HWI-M01940 -p sbs123 -r clipboard:PRIMARYCLIPBOARD -C -a 8 -g 1280x1024 10.30.6.40'

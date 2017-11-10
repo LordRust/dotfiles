@@ -61,6 +61,7 @@ fi
 # host specific aliases
 if $_iscmd; then
    alias sshlennart="ssh -Y jonas@MTLUCMDS1.lund.skane.se"
+   alias sshcmddev="ssh -Y jonas@10.0.224.55"
    alias cdm="cd /data/bnf/proj/microbiology/"
 fi
 if $_isbioinf; then

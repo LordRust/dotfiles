@@ -13,6 +13,8 @@
  ;; If there is more than one, they won't work right.
  )
 
+(setq directory-free-space-program nil) ;; add to your .emacs file. It's because df runs so slowly on NT fs
+
 ;; MELPA
 (require 'package) ;; You might already have this line
 (add-to-list 'package-archives

@@ -96,6 +96,7 @@ export LC_ALL=en_US.UTF-8
 #export PYTHONPATH=${PYTHONPATH}:${TOOLS}/git.repositories/LS-BSR
 
 export TZ="Europe/Copenhagen"
+fi
 
 ## Deduplicate PATHs 
 get_var () {
@@ -127,4 +128,4 @@ cleanpath PATH
 cleanpath INFOPATH
 cleanpath MANPATH
 
-fi
+

@@ -76,7 +76,8 @@ if $_iscygwin; then
    export LANGUAGE=en
    # export LOCAL=Een_US.UTF-8:${LOCALE}
    # export LC_CTYPE=en_US.UTF-8:${LC_CTYPE}
-   # export DISPLAY=:0.0
+   export DISPLAY=:0.0
+
 fi
 
 if [[ "$(hostname -s)" =~ s-calc-fat01-p ]]; then

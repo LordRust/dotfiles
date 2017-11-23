@@ -41,6 +41,8 @@ _isxrunning=false
 [[ -n "$DISPLAY" ]] && _isxrunning=true
 _iscygwin=false
 [[ "$(uname -s)" =~ CYGWIN ]] && _iscygwin=true
+_iscmd=false
+[[ "$(hostname -s)" =~ MTLUCMDS1 ]] && _iscmd=true
 
 #always complete cd with directories only
 complete -d cd
@@ -58,6 +60,12 @@ if $_isosx; then
     export PATH=/usr/local/bin:/usr/local/sbin:$PATH:$HOME/bin
 fi
 
+if $_iscmd; then
+   export PATH="$HOME/.linuxbrew/bin:$HOME/.local/bin:$PATH"
+   export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+   export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+fi
+
 if $_isbioinf; then
 :
 fi
@@ -68,7 +76,7 @@ if $_iscygwin; then
    export LANGUAGE=en
    # export LOCAL=Een_US.UTF-8:${LOCALE}
    # export LC_CTYPE=en_US.UTF-8:${LC_CTYPE}
-   export DISPLAY=:-2.0
+   # export DISPLAY=:0.0
 fi
 
 if [[ "$(hostname -s)" =~ s-calc-fat01-p ]]; then

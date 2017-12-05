@@ -64,6 +64,7 @@ if $_iscmd; then
    # export PATH="$HOME/.linuxbrew/bin:$HOME/.local/bin:$PATH"
    # export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
    # export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+   # source tab-qiime
 :
 fi
 

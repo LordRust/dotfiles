@@ -42,7 +42,7 @@ _isxrunning=false
 _iscygwin=false
 [[ "$(uname -s)" =~ CYGWIN ]] && _iscygwin=true
 _iscmd=false
-[[ "$(hostname -s)" =~ MTLUCMDS1 ]] && _iscmd=true
+[[ "$(hostname -s)" =~ MTLUCMDS1|mtlucmds2 ]] && _iscmd=true
 
 #always complete cd with directories only
 complete -d cd

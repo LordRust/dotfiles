@@ -44,6 +44,10 @@ if $_islinux||$_iscygwin ; then
 	alias go='gnome-open'
 	alias tmux="TERM=screen-256color tmux"
 	alias tmuxbusfix="source ~/bin/tmuxreconnect"
+	alias sa='source activate'
+	alias sd='source deactivate'
+	alias ml='module load'
+	alias mul='module unload'
 	function pidtime()
 	{
    	for i in "$@"

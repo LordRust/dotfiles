@@ -2,7 +2,7 @@ _isbioinf=false
 [[ "$(hostname -s)" =~ fbtserver|s-sdi-calc[1..5]-p ]] && _isbioinf=true
 [[ "$(whoami)" =~ jlr ]] && _isbioinf=true
 _islinux=false
-[[ "$(uname -s)" =~ Linux|GNU|GNU/* ]] && _islinux=true
+[[ "$(uname -s)" =~ Linux|GNU|GNU/* ]] && _islinux=true # also includes Windows 10 - Ubuntu 
 _isosx=false
 [[ "$(uname -s)" =~ Darwin ]] && _isosx=true
 _isxrunning=false

@@ -42,7 +42,7 @@ _isxrunning=false
 _iscygwin=false
 [[ "$(uname -s)" =~ CYGWIN ]] && _iscygwin=true
 _iscmd=false
-[[ "$(hostname -s)" =~ MTLUCMDS1|mtlucmds2 ]] && _iscmd=true
+[[ "$(hostname -s)" =~ MTLUCMDS1|mtlucmds2|MTLUCMDS2 ]] && _iscmd=true
 
 #always complete cd with directories only
 complete -d cd
@@ -65,7 +65,7 @@ if $_iscmd; then
    # export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
    # export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
    # source tab-qiime
-:
+   module load cmd
 fi
 
 if $_isbioinf; then

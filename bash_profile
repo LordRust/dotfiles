@@ -66,6 +66,7 @@ if $_iscmd; then
    # export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
    # source tab-qiime
    module load cmd
+   module load conda/miniconda3
 fi
 
 if $_isbioinf; then

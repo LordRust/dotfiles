@@ -65,6 +65,7 @@ if $_iscmd; then
    # export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
    # export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
    # source tab-qiime
+   module load use.own
    module load cmd
    module load conda/miniconda3
 fi

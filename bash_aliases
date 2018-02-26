@@ -69,6 +69,7 @@ if $_iscmd; then
    alias sshtrannel="ssh -Y jonas@10.0.224.64"
    alias sshcmddev="ssh -Y jonas@10.0.224.55"
    alias cdm="cd /data/bnf/proj/microbiology/"
+   alias sshclarity='ssh root@mtapp046.lund.skane.se'
 fi
 if $_isbioinf; then
 	alias rmiseq='rdesktop -u sbsuser -d HWI-M01940 -p sbs123 -r clipboard:PRIMARYCLIPBOARD -C -a 8 -g 1280x1024 10.30.6.40'

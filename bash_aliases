@@ -46,8 +46,6 @@ if $_islinux||$_iscygwin ; then
 	alias tmuxbusfix="source ~/bin/tmuxreconnect"
 	alias sa='source activate'
 	alias sd='source deactivate'
-	alias ml='module load'
-	alias mul='module unload'
 	alias st='sublime_text'
 	function pidtime()
 	{

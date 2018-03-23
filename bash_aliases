@@ -59,6 +59,12 @@ if $_islinux||$_iscygwin ; then
       		done
    	done
 	}
+	function body() {
+	    IFS= read -r header
+	    printf '%s\n' "$header"
+	    "$@"
+	}
+		    
 fi
 
 # host specific aliases

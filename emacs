@@ -35,8 +35,13 @@
 
 ;; Emable column number in status line
 (setq column-number-mode t)
+
+;; show trailing whitespace
+(setq-default show-trailing-whitespace t)
+
 ;; enable line wrap
 (setq default-truncate-lines nil)
+
 ;; make side by side buffers function the same as the main window
 (setq truncate-partial-width-windows nil)
 
@@ -56,6 +61,7 @@
   (scroll-down 1))
 (global-set-key [?\C-.] 'scroll-down-one-line)
 (global-set-key [?\C-,] 'scroll-up-one-line)
+
 ;; Unique lines
 (defun uniquify-region-lines (beg end)
     "Remove duplicate adjacent lines in region."

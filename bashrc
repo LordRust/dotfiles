@@ -173,10 +173,10 @@ if $_islinux; then
 		;;
 	esac
 	# Set highligt in less
-	# enter_standout_mode
-	export LESS_TERMCAP_so=$'\E[30;43m'
-	#  exit_standout_mode
-	export LESS_TERMCAP_se=$'\E[39;49m'
+	# enter_standout_mode reverse
+	export LESS_TERMCAP_so=$'\E[7m'
+	#  exit_standout_mode normal
+	export LESS_TERMCAP_se=$'\E[27m'
 fi
 
 #Bioinf

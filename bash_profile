@@ -43,6 +43,8 @@ _iscygwin=false
 [[ "$(uname -s)" =~ CYGWIN ]] && _iscygwin=true
 _iscmd=false
 [[ "$(hostname -s)" =~ MTLUCMDS1|mtlucmds2|MTLUCMDS2 ]] && _iscmd=true
+_iscoco=false
+[[ "$(hostname -s)" =~ coco ]] && _iscoco=true
 
 #always complete cd with directories only
 complete -d cd
@@ -84,6 +86,47 @@ if $_iscygwin; then
 
 fi
 
+if $_iscoco; then
+	## ssh-agent
+	# Start ssh-agent to keep you logged in with keys, use `ssh-add` to log in
+	agent=`pgrep ssh-agent -u $USER` # get only your agents
+	if [[ "$agent" == "" || ! -e ~/.ssh/.agent_env ]]; then
+		# if no agents or environment file is missing create a new one
+		# remove old agents / environment variable files
+		if [[ ! "$agent" == "" ]]; then
+			kill $agent running
+		fi
+		if [[ -e ~/.ssh/.agent_env ]]; then
+			rm ~/.ssh/.agent_env
+		fi
+		# restart
+		# eval `ssh-agent`
+		eval "$(ssh-agent -s)" > /dev/null
+		ssh-add ~/.ssh/id_rsa_trinning
+		echo 'export SSH_AUTH_SOCK'=$SSH_AUTH_SOCK >> ~/.ssh/.agent_env
+		echo 'export SSH_AGENT_PID'=$SSH_AGENT_PID >> ~/.ssh/.agent_env
+	fi
+
+	# create our own hardlink to the socket (with random name)
+	source ~/.ssh/.agent_env
+	MYSOCK=/tmp/ssh_agent.${RANDOM}.sock
+	ln -T $SSH_AUTH_SOCK $MYSOCK
+	export SSH_AUTH_SOCK=$MYSOCK
+
+	end_agent()
+	{
+		# if we are the last holder of a hardlink, then kill the agent
+		nhard=`ls -l $SSH_AUTH_SOCK | awk '{print $2}'`
+		if [[ "$nhard" -eq 2 ]]; then
+			rm ~/.ssh/.agent_env
+			ssh-agent -k
+		fi
+		rm $SSH_AUTH_SOCK
+	}
+	trap end_agent EXIT
+	set +x
+fi
+
 if [[ "$(hostname -s)" =~ s-calc-fat01-p ]]; then
 
 export HOMEBREW_GITHUB_API_TOKEN=a04f9a35e9271724e0e9b0355aa849708d4896de
@@ -93,7 +136,7 @@ export R_LIBS_USER=${TOOLS}/lib/R
 
 #Language
 export LANG=${LANG}:en_US.UTF-8
-export LC_ALL=en_US.UTF-8 
+export LC_ALL=en_US.UTF-8
 
 #Python libraries
 #export PYTHONPATH=${PYTHONPATH}:${TOOLS}/git.repositories/LS-BSR

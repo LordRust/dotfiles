@@ -103,7 +103,7 @@ if $_iscoco; then
 		# eval `ssh-agent`
 		eval "$(ssh-agent -s)" > /dev/null
 		ssh-add ~/.ssh/id_rsa_trinning
-		shs-add ~/.ssh.id
+		ssh-add ~/.ssh/id_rsa
 		echo 'export SSH_AUTH_SOCK'=$SSH_AUTH_SOCK >> ~/.ssh/.agent_env
 		echo 'export SSH_AGENT_PID'=$SSH_AGENT_PID >> ~/.ssh/.agent_env
 	fi

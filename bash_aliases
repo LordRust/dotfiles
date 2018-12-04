@@ -47,6 +47,7 @@ if $_islinux||$_iscygwin ; then
 	alias sa='source activate'
 	alias sd='source deactivate'
 	alias st='sublime_text'
+	alias findrecurserev='find . -type f -printf "%T+ %p\n" | sort -n'
 	function pidtime()
 	{
    	for i in "$@"

@@ -123,6 +123,9 @@ _isosx=false
 _isbioinf=false
 [[ "$(hostname -s)" =~ fbtserver|s-calc-fat01-p|s-sdi-calc[1..2]-p ]] && _isbioinf=true
 [[ "$(whoami)" =~ jlr ]] && _isbioinf=true
+_iscoco=false
+[[ "$(hostname -s)" =~ coco ]] && _iscoco=true
+
 
 # Linux
 if $_islinux; then
@@ -211,4 +214,8 @@ if $_isosx; then
 
 	export BYOBU_PREFIX=$(brew --prefix)
 #	[ -r /Users/jonas/.byobu/prompt ] && . /Users/jonas/.byobu/prompt   #byobu-prompt# 
+fi
+
+if $_iscoco; then
+	export DISPLAY=:0
 fi

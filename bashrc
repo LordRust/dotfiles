@@ -218,4 +218,5 @@ fi
 
 if $_iscoco; then
 	export DISPLAY=:0
+	source /home/jb/miniconda3/etc/profile.d/conda.sh
 fi

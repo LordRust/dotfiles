@@ -155,8 +155,8 @@ if $_islinux; then
 
 	# Different colors for different hosts
 	_isbioinf=false
-	[[ "$(hostname -s)" =~ srv-1-ux-calc01|s-calc-fat01-p ]] && _isbioinf=true
-	STARTFGCOLOR='\[\e[01;33m\]'
+    [[ "$(hostname -s)" =~ srv-1-ux-calc01|s-calc-fat01-p|MTLUCMDS2 ]] && _isbioinf=true
+    STARTFGCOLOR='\[\e[01;33m\]'
 	if $_isbioinf; then
 		STARTFGCOLOR='\[\e[01;32m\]'
 	fi

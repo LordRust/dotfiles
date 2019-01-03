@@ -69,7 +69,7 @@ if $_iscmd; then
    # source tab-qiime
    module load use.own
    # module load cmd
-   module load conda/miniconda3
+   module load condaminiconda3
 fi
 
 if $_isbioinf; then
@@ -126,6 +126,8 @@ if $_iscoco; then
 	}
 	trap end_agent EXIT
 	set +x
+
+    export PATH="/home/jb/anaconda3/bin:$PATH"
 fi
 
 if [[ "$(hostname -s)" =~ s-calc-fat01-p ]]; then

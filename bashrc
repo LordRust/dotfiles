@@ -125,6 +125,8 @@ _isbioinf=false
 [[ "$(whoami)" =~ jlr ]] && _isbioinf=true
 _iscoco=false
 [[ "$(hostname -s)" =~ coco ]] && _iscoco=true
+_isRS=false
+[[ "$(hostname -s)" =~ RS30106828 ]] && _isRS=true
 
 
 # Linux
@@ -235,4 +237,8 @@ if $_iscoco; then
 	fi
 	unset __conda_setup
 	# <<< conda init <<<
+fi
+
+if $_isRS; then
+	export DISPLAY=localhost:0.0
 fi

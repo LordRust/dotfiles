@@ -69,7 +69,7 @@ if $_iscmd; then
    # source tab-qiime
    module load use.own
    # module load cmd
-   module load condaminiconda3
+   module load conda/miniconda3
 fi
 
 if $_isbioinf; then

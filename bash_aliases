@@ -44,8 +44,8 @@ if $_islinux||$_iscygwin ; then
 	alias go='gnome-open'
 	alias tmux="TERM=screen-256color tmux"
 	alias tmuxbusfix="source ~/bin/tmuxreconnect"
-	alias sa='source activate'
-	alias sd='source deactivate'
+	alias sa='conda activate'
+	alias sd='conda deactivate'
 	alias st='sublime_text'
 	alias findrecurserev='find . -type f -printf "%T+ %p\n" | sort -n'
 	function pidtime()

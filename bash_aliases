@@ -46,6 +46,7 @@ if $_islinux||$_iscygwin ; then
 	alias sd='conda deactivate'
 	alias st='sublime_text'
 	alias findrecurserev='find . -type f -printf "%T+ %p\n" | sort -n'
+	alias idletty='who -s | awk '{ print $2 }' | (cd /dev && xargs stat -c '%n %U %X') | awk '{ print $1"\t"$2"\t"('"$(date +%s)"'-$3)/60 }' | sort -n -k 3'
 	function pidtime()
 	{
    	for i in "$@"

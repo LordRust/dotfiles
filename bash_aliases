@@ -73,12 +73,15 @@ if $_iscmd; then
    alias cdm="cd /data/bnf/proj/microbiology/"
    alias sshclarity='ssh root@mtapp046.lund.skane.se'
    alias sshclaritytest='ssh root@clarity-test.lund.skane.se'
+   alias sshfe1prox='ssh -o ProxyCommand="ssh -W %h:%p jonas@mtlucmds1.lund.skane.se" jonas@rs-fe1.lunarc.lu.se'
+   alias sshfs1prox='ssh -o ProxyCommand="ssh -W %h:%p jonas@mtlucmds1.lund.skane.se" jonas@rs-fs1.lunarc.lu.se'
+   alias sshfe1='ssh -Y rs-fe1.lunarc.lu.se'
+   alias sshfe1='ssh -Y rs-fs1.lunarc.lu.se'
+
    # lfsscp(){
    #      scp -o ProxyCommand="ssh -W %h:%p rs-fs1.lunarc.lu.se" -P 22022 $1 lfs603.srv.lu.se:$2
    # 		}
    # alias lfsssh='ssh -o ProxyCommand="ssh -W %h:%p rs-fs1.lunarc.lu.se" -p 22022 lfs603.srv.lu.se'
-   alias sshfe1prox='ssh -o ProxyCommand="ssh -W %h:%p jonas@mtlucmds1.lund.skane.se" jonas@rs-fe1.lunarc.lu.se'
-   alias sshfs1prox='ssh -o ProxyCommand="ssh -W %h:%p jonas@mtlucmds1.lund.skane.se" jonas@rs-fs1.lunarc.lu.se'
 fi
 if $_isbioinf; then
 	alias rmiseq='rdesktop -u sbsuser -d HWI-M01940 -p sbs123 -r clipboard:PRIMARYCLIPBOARD -C -a 8 -g 1280x1024 10.30.6.40'

@@ -24,6 +24,7 @@ alias sshelaine='ssh -Y zappa@elaine.df.lth.se'
 alias sshp='ssh zappa@pucko.df.lth.se'
 
 alias df='df -h'
+alias bc='bc -lq'
 
 # platform specific aliases
 if $_islinux||$_iscygwin ; then

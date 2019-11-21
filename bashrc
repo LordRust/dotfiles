@@ -35,8 +35,12 @@ HISTFILESIZE=20000
 export PKG_CONFIG_PATH=/usr/share/pkgconfig:$PKG_CONFIG_PATH
 # tab loops through alternatives
 # Windows style
-[[ $- = *i* ]] && bind TAB:menu-complete
-bind '"\e[Z": complete' #shift-tab to normal bash
+#[[ $- = *i* ]] && bind TAB:menu-complete
+#bind '"\e[Z": complete' #shift-tab to normal bash
+
+bind "TAB:menu-complete"
+bind "set show-all-if-ambiguous on"
+bind "set menu-complete-display-prefix on"
 
 #
 set completion-prefix-display-length 2

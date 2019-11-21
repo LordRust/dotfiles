@@ -84,7 +84,7 @@ if $_iscmd; then
    alias sshfe1prox='ssh -o ProxyCommand="ssh -W %h:%p jonas@mtlucmds1.lund.skane.se" jonas@rs-fe1.lunarc.lu.se'
    alias sshfs1prox='ssh -o ProxyCommand="ssh -W %h:%p jonas@mtlucmds1.lund.skane.se" jonas@rs-fs1.lunarc.lu.se'
    alias sshfe1='ssh -Y rs-fe1.lunarc.lu.se'
-   alias sshfe1='ssh -Y rs-fs1.lunarc.lu.se'
+   alias sshfs1='ssh -Y rs-fs1.lunarc.lu.se'
 
    # lfsscp(){
    #      scp -o ProxyCommand="ssh -W %h:%p rs-fs1.lunarc.lu.se" -P 22022 $1 lfs603.srv.lu.se:$2

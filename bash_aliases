@@ -47,6 +47,7 @@ if $_islinux||$_iscygwin ; then
 	alias sd='conda deactivate'
 	alias st='sublime_text'
 	alias findrecurserev='find . -type f -printf "%T+ %p\n" | sort -n'
+	alias running_services='systemctl list-units  --type=service  --state=running'
 	function idletty()
 	{
 		who -s | awk '{ print $2 }' | \

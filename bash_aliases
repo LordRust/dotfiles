@@ -10,7 +10,7 @@ _isxrunning=false
 _iscygwin=false
 [[ "$(uname -s)" =~ CYGWIN ]] && _iscygwin=true
 _iscmd=false
-[[ "$(hostname)" =~ MTLUCMDS1|RS30090329|RS30106828|MTLUCMDS2|mtlucmds2 ]] && _iscmd=true
+[[ "$(hostname)" =~ MTLUCMDS1|RS30090329|RS30106828|MTLUCMDS2|mtlucmds2|rs-fs1|rs-fe1 ]] && _iscmd=true
 
 # Aliases for all platforms
 alias s='cd ..'
@@ -86,6 +86,7 @@ if $_iscmd; then
    alias sshfs1prox='ssh -o ProxyCommand="ssh -W %h:%p jonas@mtlucmds1.lund.skane.se" jonas@rs-fs1.lunarc.lu.se'
    alias sshfe1='ssh -Y rs-fe1.lunarc.lu.se'
    alias sshfs1='ssh -Y rs-fs1.lunarc.lu.se'
+   alias squeue='squeue -o "%8i %12u %.8M %30j %3t %12P %.5Q %.6m %2C %6E %13R" --sort=-S,p,i'
 
    # lfsscp(){
    #      scp -o ProxyCommand="ssh -W %h:%p rs-fs1.lunarc.lu.se" -P 22022 $1 lfs603.srv.lu.se:$2
@@ -107,7 +108,6 @@ if $_isbioinf; then
 	alias sftpliseq='sftp liseq@194.74.226.172:443'
 	alias nasp='module unload nasp ; module load nasp ; nasp'
 #	alias squeue='squeue -o "%.7i %.9P %.50j %.8u %.2t %.10M %.6D %R %m %c"'
-	alias squeue='squeue -o "%8i %12u %.8M %30j %3t %12P %.5Q %.6m %2C %6E %13R" --sort=-S,p,i'
 	alias srst2='module unload srst2 ;  module load srst2 ; srst2'
 fi
 

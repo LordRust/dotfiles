@@ -225,40 +225,24 @@ fi
 if $_iscoco; then
 	export DISPLAY=:0
 	# source /home/jb/miniconda3/etc/profile.d/conda.sh
-	# added by Anaconda3 2018.12 installer
-	# >>> conda init >>>
+	# >>> conda initialize >>>
 	# !! Contents within this block are managed by 'conda init' !!
-	__conda_setup="$(CONDA_REPORT_ERRORS=false '/home/jb/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
+	__conda_setup="$('/home/jb/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 	if [ $? -eq 0 ]; then
-		\eval "$__conda_setup"
+		eval "$__conda_setup"
 	else
-		if [ -f "/home/jb/anaconda3/etc/profile.d/conda.sh" ]; then
-# . "/home/jb/anaconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
-			CONDA_CHANGEPS1=false conda activate base
+		if [ -f "/home/jb/miniconda3/etc/profile.d/conda.sh" ]; then
+			. "/home/jb/miniconda3/etc/profile.d/conda.sh"
 		else
-			\export PATH="/home/jb/anaconda3/bin:$PATH"
+			export PATH="/home/jb/miniconda3/bin:$PATH"
 		fi
 	fi
 	unset __conda_setup
-	# <<< conda init <<<
+	# <<< conda initialize <<<
 fi
 
 if $_isRS; then
 	export DISPLAY=localhost:0.0
 fi
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/data/bnf/sw/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/data/bnf/sw/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/data/bnf/sw/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/data/bnf/sw/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 

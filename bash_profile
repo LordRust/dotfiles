@@ -128,7 +128,7 @@ if $_iscoco; then
 	trap end_agent EXIT
 	set +x
 
-    export PATH="/home/jb/anaconda3/bin:$PATH"
+    #export PATH="/home/jb/anaconda3/bin:$PATH"
 fi
 
 if [[ "$(hostname -s)" =~ s-calc-fat01-p ]]; then

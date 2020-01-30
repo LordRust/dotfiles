@@ -131,6 +131,8 @@ _iscoco=false
 [[ "$(hostname -s)" =~ coco ]] && _iscoco=true
 _isRS=false
 [[ "$(hostname -s)" =~ RS30106828 ]] && _isRS=true
+_ishopper=false
+[[ "$(hostname -s)" =~ rs-fs1|rs-fe1 ]] && _ishopper=true
 
 
 # Linux
@@ -232,7 +234,7 @@ if $_iscoco; then
 		eval "$__conda_setup"
 	else
 		if [ -f "/home/jb/miniconda3/etc/profile.d/conda.sh" ]; then
-			. "/home/jb/miniconda3/etc/profile.d/conda.sh"
+ . "/home/jb/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize  # commented out by conda initialize
 		else
 			export PATH="/home/jb/miniconda3/bin:$PATH"
 		fi
@@ -250,7 +252,7 @@ if $_isRS; then
 		eval "$__conda_setup"
 	else
 		if [ -f "/data/bnf/sw/miniconda3/etc/profile.d/conda.sh" ]; then
-			. "/data/bnf/sw/miniconda3/etc/profile.d/conda.sh"
+ . "/data/bnf/sw/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize  # commented out by conda initialize
 		else
 			export PATH="/data/bnf/sw/miniconda3/bin:$PATH"
 		fi
@@ -259,4 +261,7 @@ if $_isRS; then
 	# <<< conda initialize <<<
 fi
 
+if $_ishopper; then
+    echo hopper
+fi
 

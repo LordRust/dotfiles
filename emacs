@@ -24,6 +24,7 @@
 
 (setq directory-free-space-program nil) ;; add to your .emacs file. It's because df runs so slowly on NT fs
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(electric-indent-mode 0)
 
 ;; MELPA
 (require 'package) ;; You might already have this line

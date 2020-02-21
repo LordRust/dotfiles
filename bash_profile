@@ -45,6 +45,8 @@ _iscmd=false
 [[ "$(hostname -s)" =~ MTLUCMDS1|mtlucmds2|MTLUCMDS2 ]] && _iscmd=true
 _iscoco=false
 [[ "$(hostname -s)" =~ coco ]] && _iscoco=true
+_ishopper=false
+[[ "$(hostname -s)" =~ rs-fs1|rs-fe1 ]] && _ishopper=true
 
 #always complete cd with directories only
 complete -d cd
@@ -63,26 +65,26 @@ if $_isosx; then
 fi
 
 if $_iscmd; then
-   # export PATH="$HOME/.linuxbrew/bin:$HOME/.local/bin:$PATH"
-   # export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-   # export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
-   # source tab-qiime
-   module load use.own
-   # module load cmd
-   # module load conda/miniconda3
+	# export PATH="$HOME/.linuxbrew/bin:$HOME/.local/bin:$PATH"
+	# export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+	# export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+	# source tab-qiime
+	module load use.own
+	# module load cmd
+	# module load conda/miniconda3
 fi
 
 if $_isbioinf; then
-:
+	:
 fi
 
 if $_iscygwin; then
-   # export LC_ALL=en_US.UTF-8:${LC_ALL}
-   # export LANG=en_US.UTF-8:${LANG}
-   export LANGUAGE=en
-   # export LOCAL=Een_US.UTF-8:${LOCALE}
-   # export LC_CTYPE=en_US.UTF-8:${LC_CTYPE}
-   export DISPLAY=:0.0
+	# export LC_ALL=en_US.UTF-8:${LC_ALL}
+	# export LANG=en_US.UTF-8:${LANG}
+	export LANGUAGE=en
+	# export LOCAL=Een_US.UTF-8:${LOCALE}
+	# export LC_CTYPE=en_US.UTF-8:${LC_CTYPE}
+	export DISPLAY=:0.0
 
 fi
 
@@ -133,20 +135,25 @@ fi
 
 if [[ "$(hostname -s)" =~ s-calc-fat01-p ]]; then
 
-export HOMEBREW_GITHUB_API_TOKEN=a04f9a35e9271724e0e9b0355aa849708d4896de
+	export HOMEBREW_GITHUB_API_TOKEN=a04f9a35e9271724e0e9b0355aa849708d4896de
 
-#R libraries
-export R_LIBS_USER=${TOOLS}/lib/R
+	#R libraries
+	export R_LIBS_USER=${TOOLS}/lib/R
 
-#Language
-export LANG=${LANG}:en_US.UTF-8
-export LC_ALL=en_US.UTF-8
+	#Language
+	export LANG=${LANG}:en_US.UTF-8
+	export LC_ALL=en_US.UTF-8
 
-#Python libraries
-#export PYTHONPATH=${PYTHONPATH}:${TOOLS}/git.repositories/LS-BSR
+	#Python libraries
+	#export PYTHONPATH=${PYTHONPATH}:${TOOLS}/git.repositories/LS-BSR
 
-export TZ="Europe/Copenhagen"
+	export TZ="Europe/Copenhagen"
 fi
+
+if $_ishopper; then
+	export LANG=en_US.UTF-8
+fi
+
 
 ## Deduplicate PATHs 
 get_var () {
@@ -156,22 +163,24 @@ set_var () {
     eval "$1=\"\$2\""
 }
 
+
+
 cleanpath () {
-pathvar_name="$1"
-if [ -n "pathvar_name" ]; then
-  pathvar_value=
-  old_PATH="$(get_var "$pathvar_name"):"
-  while [ -n "$old_PATH" ]; do
-    x=${old_PATH%%:*}       # the first remaining entry
-    case $pathvar_value: in
-      *:"$x":*) ;;         # already there
-      *) pathvar_value=$pathvar_value:$x;;    # not there yet
-    esac
-    old_PATH=${old_PATH#*:}
-  done
-  set_var $pathvar_name ${pathvar_value#:}	#strip the leading colon
-  unset pathvar_value old_PATH x
-fi
+	pathvar_name="$1"
+	if [ -n "pathvar_name" ]; then
+		pathvar_value=
+		old_PATH="$(get_var "$pathvar_name"):"
+		while [ -n "$old_PATH" ]; do
+			x=${old_PATH%%:*}       # the first remaining entry
+			case $pathvar_value: in
+				*:"$x":*) ;;         # already there
+				*) pathvar_value=$pathvar_value:$x;;    # not there yet
+			esac
+			old_PATH=${old_PATH#*:}
+		done
+		set_var $pathvar_name ${pathvar_value#:}	#strip the leading colon
+		unset pathvar_value old_PATH x
+	fi
 }
 
 cleanpath PATH

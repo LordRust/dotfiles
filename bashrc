@@ -131,6 +131,8 @@ _iscoco=false
 [[ "$(hostname -s)" =~ coco ]] && _iscoco=true
 _isRS=false
 [[ "$(hostname -s)" =~ RS30106828 ]] && _isRS=true
+_ishopper=false
+[[ "$(hostname -s)" =~ rs-fs1|rs-fe1 ]] && _ishopper=true
 
 
 # Linux
@@ -259,4 +261,7 @@ if $_isRS; then
 	# <<< conda initialize <<<
 fi
 
+if $_ishopper; then
+    echo hopper
+fi
 

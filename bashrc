@@ -232,9 +232,9 @@ if $_iscoco; then
 		eval "$__conda_setup"
 	else
 		if [ -f "/home/jb/miniconda3/etc/profile.d/conda.sh" ]; then
-			. "/home/jb/miniconda3/etc/profile.d/conda.sh"
-		else
-			export PATH="/home/jb/miniconda3/bin:$PATH"
+ . "/home/jb/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
+	else
+ export PATH="/home/jb/miniconda3/bin:$PATH"  # commented out by conda initialize
 		fi
 	fi
 	unset __conda_setup
@@ -250,9 +250,9 @@ if $_isRS; then
 		eval "$__conda_setup"
 	else
 		if [ -f "/data/bnf/sw/miniconda3/etc/profile.d/conda.sh" ]; then
-			. "/data/bnf/sw/miniconda3/etc/profile.d/conda.sh"
+ . "/data/bnf/sw/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
 		else
-			export PATH="/data/bnf/sw/miniconda3/bin:$PATH"
+ export PATH="/data/bnf/sw/miniconda3/bin:$PATH"  # commented out by conda initialize
 		fi
 	fi
 	unset __conda_setup

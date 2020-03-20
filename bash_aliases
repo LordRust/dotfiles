@@ -53,7 +53,7 @@ if $_islinux||$_iscygwin ; then
 		who -s | awk '{ print $2 }' | \
 		(cd /dev && xargs stat -c '%n %U %X') | \
 		awk '{ print $1"\t"$2"\t"('"$(date +%s)"'-$3)/60 }' | \
-		sort -n -k 3
+		sort -n -r -k 3
 	}
 	function pidtime()
 	{

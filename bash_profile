@@ -47,6 +47,8 @@ _iscoco=false
 [[ "$(hostname -s)" =~ coco ]] && _iscoco=true
 _ishopper=false
 [[ "$(hostname -s)" =~ rs-fs1|rs-fe1 ]] && _ishopper=true
+_iswsl=false
+if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then _iswsl=true ; fi
 
 #always complete cd with directories only
 complete -d cd
@@ -57,6 +59,11 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 # host specific variables
+if $_iswsl ; then
+    echo "this is WSL"
+    export LIBGL_ALWAYS_INDIRECT=1
+fi
+
 if $_isosx; then
     # Set architecture flags
     export ARCHFLAGS="-arch x86_64"

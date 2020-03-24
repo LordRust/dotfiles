@@ -1,5 +1,5 @@
 !! Appearance
-urxvt.termName: rxvt-unicode
+urxvt.termName: rxvt-unicode-256color
 urxvt.scrollBar: false
 !URxvt.scrollstyle: plain
 URxvt.borderColor: #000030
@@ -7,8 +7,14 @@ URxvt.internalBorder: 1
 urxvt.background: black
 urxvt.foreground: white
 !! Font prefferenes
-urxvt.font: xft:DejaVu Sans Mono:pixelsize=15
-urxvt.boldFont: xft:DejaVu Sans Mono:pixelsize=15:weight=bold
+! urxvt.font: xft:DejaVu Sans Mono:pixelsize=15
+! urxvt.boldFont: xft:DejaVu Sans Mono:pixelsize=15:weight=bold
+! urxvt.font: xft:Consolas:pixelsize=13
+! urxvt.boldFont: xft:Consolas:pixelsize=13:weight=bold
+urxvt.font: xft:Liberation Mono:pixelsize=12:wight=regular
+urxvt.boldFont: xft:Liberation Mono:pixelsize=12:weight=bold
+! urxvt.font: xft:Lucida Console:pixelsize=15
+! urxvt.boldFont: xft:Lucida Console:pixelsize=15:weight=bold
 urxvt.letterSpace: -1
 !-- Xft settings -- !
 Xft.dpi:        96
@@ -16,6 +22,7 @@ Xft.antialias:  true
 Xft.rgba:       rgb
 Xft.hinting:    true
 Xft.hintstyle:  hintfull
+Xft.autohint:   true
 !! Larger history limit
 urxvt.saveLines: 1000000
 

@@ -79,7 +79,7 @@ Xft.autohint:   true
 xterm*eightBitInput: false
 !! Larger history limit
 xterm*saveLines: 1000000
-
+xterm*fastScroll: true
 
 !! Tango color theme
 !! Strange - it matches tango from gnome-terminal, but looks different

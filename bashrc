@@ -129,8 +129,10 @@ _isbioinf=false
 [[ "$(whoami)" =~ jlr ]] && _isbioinf=true
 _iscoco=false
 [[ "$(hostname -s)" =~ coco ]] && _iscoco=true
+_isEklient=false
+[[ "$(hostname -s)" =~ RS30106828 ]] && _isEklient=true
 _isRS=false
-[[ "$(hostname -s)" =~ RS30106828 ]] && _isRS=true
+[[ "$(hostname -s)" =~ MTLUCMDS1|MTLUCMDS2 ]] && _isRS=true
 _ishopper=false
 [[ "$(hostname -s)" =~ rs-fs1|rs-fe1 ]] && _ishopper=true
 
@@ -234,17 +236,20 @@ if $_iscoco; then
 		eval "$__conda_setup"
 	else
 		if [ -f "/home/jb/miniconda3/etc/profile.d/conda.sh" ]; then
- . "/home/jb/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
+ . "/home/jb/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize  # commented out by conda initialize
 	else
- export PATH="/home/jb/miniconda3/bin:$PATH"  # commented out by conda initialize
+ export PATH="/home/jb/miniconda3/bin:$PATH"  # commented out by conda initialize  # commented out by conda initialize
 		fi
 	fi
 	unset __conda_setup
 	# <<< conda initialize <<<
 fi
 
-if $_isRS; then
+if $_isEklient; then
 	export DISPLAY=localhost:0.0
+fi
+
+if $_isRS; then
 	# >>> conda initialize >>>
 	# !! Contents within this block are managed by 'conda init' !!
 	__conda_setup="$('/data/bnf/sw/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
@@ -252,9 +257,9 @@ if $_isRS; then
 		eval "$__conda_setup"
 	else
 		if [ -f "/data/bnf/sw/miniconda3/etc/profile.d/conda.sh" ]; then
- . "/data/bnf/sw/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
+			. "/data/bnf/sw/miniconda3/etc/profile.d/conda.sh"
 		else
- export PATH="/data/bnf/sw/miniconda3/bin:$PATH"  # commented out by conda initialize
+			export PATH="/data/bnf/sw/miniconda3/bin:$PATH"
 		fi
 	fi
 	unset __conda_setup

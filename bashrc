@@ -165,10 +165,12 @@ if $_islinux; then
 
 	# Different colors for different hosts
 	_isbioinf=false
-    [[ "$(hostname -s)" =~ srv-1-ux-calc01|s-calc-fat01-p|MTLUCMDS2 ]] && _isbioinf=true
-    STARTFGCOLOR='\[\e[01;33m\]'
-	if $_isbioinf; then
+    if [[ "$(hostname -s)" =~ MTLUCMDS2 ]] ; then
+		STARTFGCOLOR='\[\e[01;33m\]'
+	elif $_isbioinf ; then
 		STARTFGCOLOR='\[\e[01;32m\]'
+	elif $_ishopper ; then
+		STARTFGCOLOR='\[\e[01m\]'
 	fi
 	if [ "$color_prompt" = yes ]; then
 		PS1="${debian_chroot:+($debian_chroot)}$STARTFGCOLOR\u@\h\[\033[00m\]: \[\033[01;34m\]\w\[\033[00m\]\$ "

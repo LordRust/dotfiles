@@ -167,7 +167,7 @@ if $_islinux; then
 	_isbioinf=false
     if [[ "$(hostname -s)" =~ MTLUCMDS2 ]] ; then
 		STARTFGCOLOR='\[\e[01;33m\]'
-	elif $_isbioinf ; then
+	elif $_iscoco ; then
 		STARTFGCOLOR='\[\e[01;32m\]'
 	elif $_ishopper ; then
 		STARTFGCOLOR='\[\e[01m\]'

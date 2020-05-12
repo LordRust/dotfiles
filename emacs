@@ -12,7 +12,7 @@
  '(cua-normal-cursor-color "#839496")
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
- '(custom-enabled-themes (quote (tango-2)))
+ '(custom-enabled-themes (quote (tango-dark)))
  '(custom-safe-themes
    (quote
 	("0598c6a29e13e7112cfbc2f523e31927ab7dce56ebb2016b567e1eff6dc1fd4f" "604ac011fc9bd042bc041330b3a5e5a86e764a46f7e9fe13e2a1f9f83bf44327" "fad9c3dbfd4a889499f6921f54f68de8857e6846a0398e89887dbe5f26b591c0" "713f898dd8c881c139b62cf05b7ac476d05735825d49006255c0a31f9a4f46ab" "7d16f75538c42cd57d098fa582a469ef75b9d55891b8fb7b27a5236c6ccc0594" default)))

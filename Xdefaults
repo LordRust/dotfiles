@@ -85,6 +85,8 @@ xterm*loginShell: true
 !xterm*vt100*geometry: 80x50
 xterm*termName: xterm-256color
 
+!clipboard from within tmux OSC 52
+XTerm*disallowedWindowOps: 20,21,SetXprop
 
 !! Tango color theme
 !! Strange - it matches tango from gnome-terminal, but looks different

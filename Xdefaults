@@ -91,7 +91,8 @@ XTerm*disallowedWindowOps: 20,21,SetXprop
 !! Tango color theme
 !! Strange - it matches tango from gnome-terminal, but looks different
 *color0: rgb:00/00/00
-*color1: rgb:CC/00/00
++!*color1: rgb:CC/00/00
++*color1: rgb:EC/20/20
 *color2: rgb:4E/9A/06
 *color3: rgb:C4/A0/00
 *color4: rgb:34/65/A4

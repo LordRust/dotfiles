@@ -173,7 +173,7 @@ if $_islinux; then
 	else
 		HOSTNAMECOLOR='\[\e[01m\]'
 	fi
-	if [[ _isRS ]] ; then
+	if _isRS ; then
 	    USERCOLOR='\[\e[01;33m\]'
 	elif $_ishopper ; then
 		USERCOLOR='\[\e[01;34m\]'

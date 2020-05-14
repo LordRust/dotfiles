@@ -124,9 +124,6 @@ _islinux=false
 [[ "$(uname -s)" =~ Linux|GNU|GNU/* ]] && _islinux=true
 _isosx=false
 [[ "$(uname -s)" =~ Darwin ]] && _isosx=true
-_isbioinf=false
-[[ "$(hostname -s)" =~ fbtserver|s-calc-fat01-p|s-sdi-calc[1..2]-p ]] && _isbioinf=true
-[[ "$(whoami)" =~ jlr ]] && _isbioinf=true
 _iscoco=false
 [[ "$(hostname -s)" =~ coco ]] && _iscoco=true
 _isEklient=false
@@ -134,7 +131,7 @@ _isEklient=false
 _isRS=false
 [[ "$(hostname -s)" =~ MTLUCMDS1|MTLUCMDS2 ]] && _isRS=true
 _ishopper=false
-[[ "$(hostname -s)" =~ rs-fs1|rs-fe1 ]] && _ishopper=true
+[[ "$(hostname -s)" =~ rs-fs1|rs-fe1|rs-n[1..8] ]] && _ishopper=true
 
 
 # Linux
@@ -166,18 +163,29 @@ if $_islinux; then
 	# Different colors for different hosts
 	_isbioinf=false
     if [[ "$(hostname -s)" =~ MTLUCMDS2 ]] ; then
-		STARTFGCOLOR='\[\e[01;33m\]'
+		HOSTNAMECOLOR='\[\e[01;32m\]'
+    elif [[ "$(hostname -s)" =~ MTLUCMDS1 ]] ; then
+		HOSTNAMECOLOR='\[\e[01;33m\]'
 	elif $_iscoco ; then
-		STARTFGCOLOR='\[\e[01;32m\]'
+		HOSTNAMECOLOR='\[\e[01;32m\]'
 	elif $_ishopper ; then
-		STARTFGCOLOR='\[\e[01m\]'
+		HOSTNAMECOLOR='\[\e[01;34m\]'
+	else
+		HOSTNAMECOLOR='\[\e[01m\]'
+	fi
+	if [[ _isRS ]] ; then
+	   USERCOLOR='\[\e[01;33m\]'
+	elif $_ishopper ; then
+		USERCOLOR='\[\e[01m;34m\]'
+	else
+		USERCOLOR='\[\e[01m\]'
 	fi
 	if [ "$color_prompt" = yes ]; then
-		PS1="${debian_chroot:+($debian_chroot)}$STARTFGCOLOR\u@\h\[\033[00m\]: \[\033[01;34m\]\w\[\033[00m\]\$ "
+		PS1="${debian_chroot:+($debian_chroot)}$USERCOLOR\u\[\033[00m\]@$HOSTNAMECOLOR\h\[\033[00m\]: \[\033[01;34m\]\w\[\033[00m\]\$ "
 	else
 		PS1='${debian_chroot:+($debian_chroot)}\u@\h: \w\$ '
 	fi
-	unset color_prompt force_color_prompt
+	unset color_prompt force_color_prompt HOSTNAMECOLOR USERCOLOR
 
 	# If this is an xterm set the title to user@host:dir
 	case "$TERM" in

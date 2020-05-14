@@ -45,7 +45,7 @@ Xft.autohint:   true
 !! Strange - it matches tango from gnome-terminal, but looks different
 *color0: rgb:00/00/00
 +!*color1: rgb:CC/00/00
-+*color1: rgb:EC/20/20
++*color1: rgb:D7/00/00
 *color2: rgb:4E/9A/06
 *color3: rgb:C4/A0/00
 *color4: rgb:34/65/A4
@@ -53,7 +53,8 @@ Xft.autohint:   true
 *color6: rgb:06/98/9A
 *color7: rgb:D3/D7/CF
 *color8: rgb:55/57/53
-*color9: rgb:EF/29/29
+!*color9: rgb:EF/29/29
+*color9: rgb:FF/00/00
 *color10: rgb:8A/E2/34
 *color11: rgb:FC/E9/4F
 *color12: rgb:72/9F/CF

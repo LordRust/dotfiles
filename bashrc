@@ -141,6 +141,8 @@ if $_islinux; then
 		xterm-color) color_prompt=yes;;
 	esac
 
+	GREP_COLORS='ms=01;31:mc=01;31:sl=:cx=:fn=:ln=32:bn=32:se=36'
+
 	unset GIT_ASKPASS
 	unset SSH_ASKPASS
 

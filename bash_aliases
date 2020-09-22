@@ -28,6 +28,9 @@ alias bc='bc -lq'
 
 # platform specific aliases
 if $_islinux||$_iscygwin ; then
+    alias zzvmstat='vmstat -w -a -S M 2'
+	alias zziostat='iostat -m -N -y 2'
+	alias zzdropcaches='sudo sh -c “echo 3 > /proc/sys/vm/drop_caches”'
 	alias em='emacs -nw'
 	alias emw='emacs'
 	alias compc='compgen -A function -abck|grep'
@@ -40,7 +43,7 @@ if $_islinux||$_iscygwin ; then
 	alias vboxfix='killall VBoxClient;VBoxClient-all'
 	function ct() { column -ts $'\t' "$@" ; }
 	function ctt() { column -ts $'\t' "$@" | less -S ; }
-	alias go='gnome-open'
+	# alias go='gnome-open'
 	alias tmux="TERM=screen-256color tmux"
 	alias tmuxbusfix="source ~/bin/tmuxreconnect"
 	alias sa='conda activate'

@@ -248,9 +248,9 @@ if $_iscoco; then
 		eval "$__conda_setup"
 	else
 		if [ -f "/home/jb/miniconda3/etc/profile.d/conda.sh" ]; then
- . "/home/jb/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize  # commented out by conda initialize
-	else
- export PATH="/home/jb/miniconda3/bin:$PATH"  # commented out by conda initialize  # commented out by conda initialize
+			. "/home/jb/miniconda3/etc/profile.d/conda.sh"
+		else
+			export PATH="/home/jb/miniconda3/bin:$PATH"
 		fi
 	fi
 	unset __conda_setup

@@ -17,7 +17,8 @@ xterm*internalBorder: 1
 xterm*background: black
 xterm*foreground: white
 
-XTerm*faceName: xft:Liberation Mono
+!! XTerm*faceName: xft:Liberation Mono
+XTerm*faceName: xft:Hack
 XTerm*faceSize: 9
 
 ! VT Font Menu: Unreadable

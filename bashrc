@@ -239,7 +239,13 @@ if $_isosx; then
 fi
 
 if $_iscoco; then
-	export DISPLAY=:0
+    if [ -t 1 ]; then
+   	    cd ~
+    fi
+    # export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
+	# export LIBGL_ALWAYS_INDIRECT=1
+
+	# export DISPLAY=:0
 	# source /home/jb/miniconda3/etc/profile.d/conda.sh
 	# >>> conda initialize >>>
 	# !! Contents within this block are managed by 'conda init' !!
@@ -281,4 +287,3 @@ fi
 if $_ishopper; then
     :
 fi
-

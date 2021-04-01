@@ -45,7 +45,7 @@ if $_islinux||$_iscygwin ; then
 	function ctt() { column -ts $'\t' "$@" | less -S ; }
 	# alias go='gnome-open'
 	alias tmux="TERM=screen-256color tmux"
-	alias tmuxbusfix="source ~/bin/tmuxreconnect"
+	alias bfix="source ~/bin/tmuxreconnect"
 	alias sa='conda activate'
 	alias sd='conda deactivate'
 	alias findrecurserev='find . -type f -printf "%T+ %p\n" | sort -n'

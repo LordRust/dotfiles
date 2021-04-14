@@ -19,20 +19,20 @@ xterm*foreground: white
 
 !! XTerm*faceName: xft:Liberation Mono
 XTerm*faceName: xft:Hack
-XTerm*faceSize: 9
+XTerm*faceSize: 10
 
 ! VT Font Menu: Unreadable
 xterm*faceSize1: 2
 ! VT font menu: Tiny
-xterm*faceSize2: 5
+xterm*faceSize2: 7
 ! VT font menu: Small
-xterm*faceSize3: 7
+xterm*faceSize3: 9
 ! VT font menu: Medium
 xterm*faceSize4: 11
 ! VT font menu: Large
-xterm*faceSize5: 13
+xterm*faceSize5: 12
 ! VT font menu: Huge
-xterm*faceSize6: 15
+xterm*faceSize6: 14
 
 !-- Xft settings -- !
 Xft.dpi:        96

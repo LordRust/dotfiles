@@ -43,6 +43,7 @@ if $_islinux||$_iscygwin ; then
 	alias vboxfix='killall VBoxClient;VBoxClient-all'
 	function ct() { column -ts $'\t' "$@" ; }
 	function ctt() { column -ts $'\t' "$@" | less -S ; }
+	function bless() { iconv -f iso-8859-1 -t UTF-8 "$@" | less; }
 	# alias go='gnome-open'
 	alias tmux="TERM=screen-256color tmux"
 	alias bfix="source ~/bin/tmuxreconnect"

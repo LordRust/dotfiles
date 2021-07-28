@@ -44,6 +44,7 @@ if $_islinux||$_iscygwin ; then
 	function ct() { column -ts $'\t' "$@" ; }
 	function ctt() { column -ts $'\t' "$@" | less -S ; }
 	function bless() { iconv -f iso-8859-1 -t UTF-8 "$@" | less; }
+	function bcat() { iconv -f iso-8859-1 -t UTF-8 "$@"; }
 	# alias go='gnome-open'
 	alias tmux="TERM=screen-256color tmux"
 	alias bfix="source ~/bin/tmuxreconnect"

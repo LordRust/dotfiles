@@ -184,3 +184,9 @@
 (add-to-list 'command-switch-alist '("diff" . command-line-diff))
 
 ;; Usage: emacs -diff file1 file2
+
+;; Tell emacs where is your personal elisp lib dir
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+
+;; load the packaged named xyz.
+(load "nextflow-mode") ;; best not to include the ending “.el” or “.elc”

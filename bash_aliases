@@ -93,7 +93,7 @@ if $_iscmd; then
    alias sshfs1='ssh -Y rs-fs1.lunarc.lu.se'
    alias nfq='sudo /fs1/bjorn/bnf-scripts/nfq'
    alias squeue='squeue -o "%7i %7u %.8M %.10l %20j %2t %.8M %7P %.5Q %.5m %2C %19S %6E %13R" --sort=-S,p,i'
-   alias squeuelong='squeue -o "%7i %7u %.8M %.10l %35j %2t %.8M %7P %.5Q %.5m %2C %19S %6E %13R" --sort=-S,p,i'
+   alias squeuelong='squeue -o "%7i %7u %.8M %.10l %65j %2t %.8M %7P %.5Q %.5m %2C %19S %6E %13R" --sort=-S,p,i'
    # alias squeue='squeue -o "%8i %12u %.8M %30j %3t %12P %.5Q %.6m %2C %6E %13R" --sort=-S,p,i'
 
    # lfsscp(){

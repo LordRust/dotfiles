@@ -199,3 +199,7 @@
 (add-to-list 'interpreter-mode-alist '("perl" . cperl-mode))
 (add-to-list 'interpreter-mode-alist '("perl5" . cperl-mode))
 (add-to-list 'interpreter-mode-alist '("miniperl" . cperl-mode))
+(custom-set-faces
+ '(cperl-array-face ((t (:weight normal))))
+ '(cperl-hash-face ((t (:weight normal))))
+)

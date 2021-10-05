@@ -1,4 +1,4 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
+X1# ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
@@ -24,7 +24,7 @@ shopt -s histappend
 
 # Sync history between sessions
 export PROMPT_COMMAND="history -a; history -n; $PROMPT_COMMAND"
-
+s
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=10000
 HISTFILESIZE=20000
@@ -127,7 +127,7 @@ _isosx=false
 _iscoco=false
 [[ "$(hostname -s)" =~ coco ]] && _iscoco=true
 _isEklient=false
-[[ "$(hostname -s)" =~ RS30106828 ]] && _isEklient=true
+[[ "$(hostname -s)" =~ RS30134650 | RS30106828 ]] && _isEklient=true
 _isRS=false
 [[ "$(hostname -s)" =~ MTLUCMDS1|MTLUCMDS2 ]] && _isRS=true
 _ishopper=false

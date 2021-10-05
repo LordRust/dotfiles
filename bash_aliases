@@ -10,7 +10,7 @@ _isxrunning=false
 _iscygwin=false
 [[ "$(uname -s)" =~ CYGWIN ]] && _iscygwin=true
 _iscmd=false
-[[ "$(hostname)" =~ MTLUCMDS1|RS30090329|RS30106828|MTLUCMDS2|mtlucmds2|rs-fs1|rs-fe1 ]] && _iscmd=true
+[[ "$(hostname)" =~ MTLUCMDS1|RS30134650|RS30090329|RS30106828|MTLUCMDS2|mtlucmds2|rs-fs1|rs-fe1 ]] && _iscmd=true
 
 # Aliases for all platforms
 alias s='cd ..'

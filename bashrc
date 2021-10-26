@@ -197,6 +197,13 @@ if $_islinux; then
 	*)
 		;;
 	esac
+
+	# Use git prompt
+	if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
+    GIT_PROMPT_ONLY_IN_REPO=1
+    source $HOME/.bash-git-prompt/gitprompt.sh
+	fi
+
 	# Set highligt in less
 	# enter_standout_mode reverse
 	export LESS_TERMCAP_so=$'\E[7m'
@@ -293,6 +300,7 @@ if $_isRS; then
 #    PERL_LOCAL_LIB_ROOT="/home/jonas/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 #    PERL_MB_OPT="--install_base \"/home/jonas/perl5\""; export PERL_MB_OPT;
 #    PERL_MM_OPT="INSTALL_BASE=/home/jonas/perl5"; export PERL_MM_OPT;
+:
 fi
 
 if $_ishopper; then

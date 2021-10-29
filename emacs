@@ -116,6 +116,9 @@
 (require 'ido)
 (ido-mode t)
 
+;; Enable paren matching
+(show-paren-mode 1)
+
 ;; Emable column number in status line
 (setq column-number-mode t)
 

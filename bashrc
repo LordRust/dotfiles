@@ -304,7 +304,7 @@ if $_isRS; then
 #    PERL_MB_OPT="--install_base \"/home/jonas/perl5\""; export PERL_MB_OPT;
 #    PERL_MM_OPT="INSTALL_BASE=/home/jonas/perl5"; export PERL_MM_OPT;
 
-	 TMUX_TMPDIR=$HOME/.local/tmp
+	 export TMUX_TMPDIR=$HOME/.local/tmp
 
 :
 fi

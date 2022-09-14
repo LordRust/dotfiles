@@ -85,7 +85,7 @@ if $_iscmd; then
    alias sshtrannel="ssh -Y jonas@mtlucmds2.lund.skane.se"
    alias sshcmddev="ssh -Y jonas@10.0.224.55"
    alias cdm="cd /data/bnf/proj/microbiology/"
-   alias sshclarity='ssh root@mtapp046.lund.skane.se'
+   alias sshclarity='ssh clarity@claritylims.lund.skane.se'
    alias sshclaritytest='ssh root@clarity-test.lund.skane.se'
    alias sshfe1prox='ssh -o ProxyCommand="ssh -W %h:%p jonas@mtlucmds1.lund.skane.se" jonas@rs-fe1.lunarc.lu.se'
    alias sshfs1prox='ssh -o ProxyCommand="ssh -W %h:%p jonas@mtlucmds1.lund.skane.se" jonas@rs-fs1.lunarc.lu.se'

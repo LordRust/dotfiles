@@ -11,6 +11,8 @@ _iscygwin=false
 [[ "$(uname -s)" =~ CYGWIN ]] && _iscygwin=true
 _iscmd=false
 [[ "$(hostname)" =~ MTLUCMDS1|RS30134699|RS30134650|RS30090329|RS30106828|MTLUCMDS2|mtlucmds2|rs-fs1|rs-fe1 ]] && _iscmd=true
+_ishopper=false
+[[ "$(hostname -s)" =~ rs-fs1|rs-fe1 ]] && _ishopper=true
 
 # Aliases for all platforms
 alias s='cd ..'
@@ -101,6 +103,11 @@ if $_iscmd; then
    # 		}
    # alias lfsssh='ssh -o ProxyCommand="ssh -W %h:%p rs-fs1.lunarc.lu.se" -p 22022 lfs603.srv.lu.se'
 fi
+
+if $_ishopper ; then
+   	function ctt() { column -ts $'\t' "$@" | less -S ; }
+fi
+
 if $_isbioinf; then
 	alias rmiseq='rdesktop -u sbsuser -d HWI-M01940 -p sbs123 -r clipboard:PRIMARYCLIPBOARD -C -a 8 -g 1280x1024 10.30.6.40'
 	alias sw='seaview -lengths'

@@ -10,6 +10,14 @@ xterm*eightBitInput: false
 !clipboard from within tmux OSC 52
 XTerm*disallowedWindowOps: 20,21,SetXprop
 
+!system clipboard in WSL2
+xterm*selectToClipboard: true
+
+!visual bell
+xterm*visualBell: true
+xterm*visualBellDelay: 100
+xterm*visualBellLine: true
+
 !! Appearance
 
 xterm*borderColor: #000030

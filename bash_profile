@@ -61,7 +61,7 @@ fi
 # host specific variables
 if $_iswsl ; then
     echo "this is WSL"
-    export LIBGL_ALWAYS_INDIRECT=1
+    export LIBGL_ALWAYS_INDIRECT=0
 	setxkbmap -model pc105 -layout us,se -option grp:ctrls_toggle
 fi
 

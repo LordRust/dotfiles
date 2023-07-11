@@ -310,6 +310,7 @@ if $_isRS; then
 fi
 
 if $_ishopper; then
+	 export TMUX_TMPDIR=$HOME/.local/tmp
     :
 fi
 

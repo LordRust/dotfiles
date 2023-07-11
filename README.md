@@ -1,2 +1,2 @@
 # dotfiles
-Dotfiles for Linux and OS X
+Dotfiles for Linux (and maybe OS X)

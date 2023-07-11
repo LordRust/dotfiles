@@ -126,6 +126,8 @@ _isosx=false
 [[ "$(uname -s)" =~ Darwin ]] && _isosx=true
 _iscoco=false
 [[ "$(hostname -s)" =~ coco ]] && _iscoco=true
+_ist14s=false
+[[ "$(hostname -s)" =~ t14s ]] && _ist14s=true
 _isEklient=false
 [[ "$(hostname -s)" =~ RS30134650|RS30106828 ]] && _isEklient=true
 _isRS=false
@@ -168,7 +170,7 @@ if $_islinux; then
 		HOSTNAMECOLOR='\[\e[01;32m\]'
     elif [[ "$(hostname -s)" =~ MTLUCMDS1 ]] ; then
 		HOSTNAMECOLOR='\[\e[01;33m\]'
-	elif $_iscoco ; then
+	elif [[ $_iscoco = 'true' ]] || [[ $_ist14s = 'true' ]] ; then
 		HOSTNAMECOLOR='\[\e[01;32m\]'
 	elif $_ishopper ; then
 		HOSTNAMECOLOR='\[\e[01;34m\]'
@@ -276,6 +278,11 @@ if $_iscoco; then
 	PERL_MM_OPT="INSTALL_BASE=/home/jb/perl5"; export PERL_MM_OPT;
 
 fi
+
+if $_ist14s ; then
+   eval "$(/home/jonas/mambaforge/bin/conda shell.bash hook)"
+fi
+
 
 if $_isEklient; then
 	export DISPLAY=localhost:0.0

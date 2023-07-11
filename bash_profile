@@ -61,7 +61,8 @@ fi
 # host specific variables
 if $_iswsl ; then
     echo "this is WSL"
-    export LIBGL_ALWAYS_INDIRECT=1
+    export LIBGL_ALWAYS_INDIRECT=0
+	setxkbmap -model pc105 -layout us,se -option grp:ctrls_toggle
 fi
 
 if $_isosx; then
@@ -73,6 +74,7 @@ fi
 
 if $_iscmd; then
 	# export PATH="$HOME/.linuxbrew/bin:$HOME/.local/bin:$PATH"
+	export PATH="$HOME/.local/bin:$PATH:/usr/local/go/bin"
 	# export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
 	# export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 	# source tab-qiime

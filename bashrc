@@ -184,8 +184,13 @@ if $_islinux; then
 	else
 		USERCOLOR='\[\e[01m\]'
 	fi
+	if [[ -f /etc/debian_version ]] ; then
+	   ps1host='debian'
+	else
+		ps1host=$(hostname)
+	fi
 	if [ "$color_prompt" = yes ]; then
-		PS1="${debian_chroot:+($debian_chroot)}$USERCOLOR\u\[\033[00m\]@$HOSTNAMECOLOR\h\[\033[00m\]: \[\033[01;34m\]\w\[\033[00m\]\$ "
+		PS1="${debian_chroot:+($debian_chroot)}$USERCOLOR\u\[\033[00m\]@$HOSTNAMECOLOR${ps1host}\[\033[00m\]: \[\033[01;34m\]\w\[\033[00m\]\$ "
 	else
 		PS1='${debian_chroot:+($debian_chroot)}\u@\h: \w\$ '
 	fi

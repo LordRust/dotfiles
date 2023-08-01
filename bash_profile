@@ -65,6 +65,10 @@ if $_iswsl ; then
 	setxkbmap -model pc105 -layout us,se -option grp:ctrls_toggle
 fi
 
+if $_islinux ; then
+   [[ -e /usr/bin/neofetch ]] && neofetch
+fi
+
 if $_isosx; then
     # Set architecture flags
     export ARCHFLAGS="-arch x86_64"

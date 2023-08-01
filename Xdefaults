@@ -6,9 +6,12 @@ xterm*fastScroll: true
 xterm*saveLines: 65536
 xterm*eightBitInput: false
 !xterm*vt100*geometry: 80x50
+XTerm*decTerminalID: vt340
+XTerm*numColorRegisters: 256
 
 !clipboard from within tmux OSC 52
-XTerm*disallowedWindowOps: 20,21,SetXprop
+!XTerm*disallowedWindowOps: 20,21,SetXprop
+XTerm*disallowedWindowOps: 1,2,3,4,5,6,7,8,9,11,13,19,20,21,GetSelection,SetSelection,SetWinLines,SetXprop
 
 !system clipboard in WSL2
 xterm*selectToClipboard: true

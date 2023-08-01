@@ -186,6 +186,8 @@ if $_islinux; then
 	fi
 	if [[ -f /etc/debian_version ]] ; then
 	   ps1host='debian'
+	elif [[ -e /etc/fedora-release ]] ; then
+	   ps1host='fedora'
 	else
 		ps1host=$(hostname)
 	fi

@@ -24,6 +24,7 @@ xterm*borderColor: #000030
 xterm*internalBorder: 1
 xterm*background: black
 xterm*foreground: white
+xterm*scrollBar: false
 
 !! XTerm*faceName: xft:Liberation Mono
 XTerm*faceName: xft:Hack

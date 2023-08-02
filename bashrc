@@ -184,10 +184,13 @@ if $_islinux; then
 	else
 		USERCOLOR='\[\e[01m\]'
 	fi
+
 	if $_isEklient ; then
 	   if [[ -f /etc/debian_version ]] ; then
 		   ps1host='debian'
 	   elif [[ -e /etc/fedora-release ]] ; then
+		   DTMP="$(grep nameserver /etc/resolv.conf)"
+		   export DISPLAY="${DTMP#nameserver }:1.0"
 		   if [[ $(grep 'Fedora release' /etc/fedora-release) ]] ; then
 			   ps1host='fedora'
 		   elif [[ $(grep 'Generic release' /etc/fedora-release) ]] ; then
@@ -302,7 +305,7 @@ fi
 
 
 if $_isEklient; then
-	export DISPLAY=localhost:0.0
+	:
 fi
 
 if $_isRS; then
@@ -337,3 +340,4 @@ if $_ishopper; then
 	 export TMUX_TMPDIR=$HOME/.local/tmp
     :
 fi
+

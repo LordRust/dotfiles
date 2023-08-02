@@ -67,7 +67,7 @@ if $_iswsl ; then
 fi
 
 if $_islinux ; then
-   [[ -e /usr/bin/neofetch ]] && neofetch
+   [[ -e /usr/bin/neofetch ]] && neofetch --sixel $HOME/.config/neofetch/os.svg
 fi
 
 if $_isosx; then

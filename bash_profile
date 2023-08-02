@@ -67,7 +67,7 @@ if $_iswsl ; then
 fi
 
 if $_islinux ; then
-   [[ -e /usr/bin/neofetch ]] && neofetch --sixel $HOME/.config/neofetch/os.svg
+   [[ (-e /usr/bin/neofetch) && (! -e $HOME/.config/neofetch/nosplash) ]] && neofetch --sixel $HOME/.config/neofetch/os.svg
 fi
 
 if $_isosx; then
@@ -200,5 +200,3 @@ cleanpath () {
 cleanpath PATH
 cleanpath INFOPATH
 cleanpath MANPATH
-
-

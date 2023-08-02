@@ -188,7 +188,15 @@ if $_islinux; then
 	   if [[ -f /etc/debian_version ]] ; then
 		   ps1host='debian'
 	   elif [[ -e /etc/fedora-release ]] ; then
-		   ps1host='fedora'
+		   if [[ $(grep 'Fedora release' /etc/fedora-release) ]] ; then
+			   ps1host='fedora'
+		   elif [[ $(grep 'Generic release' /etc/fedora-release) ]] ; then
+			   ps1host='fedoraremix'
+		   else
+			   ps1host='fedoraunknown'
+		   fi
+	   else
+		   ps1host=$(hostname)
 	   fi
 	else
 		ps1host=$(hostname)
@@ -329,4 +337,3 @@ if $_ishopper; then
 	 export TMUX_TMPDIR=$HOME/.local/tmp
     :
 fi
-

@@ -184,10 +184,12 @@ if $_islinux; then
 	else
 		USERCOLOR='\[\e[01m\]'
 	fi
-	if [[ -f /etc/debian_version ]] ; then
-	   ps1host='debian'
-	elif [[ -e /etc/fedora-release ]] ; then
-	   ps1host='fedora'
+	if $_isEklient ; then
+	   if [[ -f /etc/debian_version ]] ; then
+		   ps1host='debian'
+	   elif [[ -e /etc/fedora-release ]] ; then
+		   ps1host='fedora'
+	   fi
 	else
 		ps1host=$(hostname)
 	fi

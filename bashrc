@@ -220,7 +220,7 @@ if $_islinux; then
 	case "$TERM" in
 	xterm*|rxvt*)
 #		PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-		PS1="\[\e]0;${debian_chroot:+($debian_chroot)}$ps1host \h: \w\a\]$PS1"
+		PS1="\[\e]0;${debian_chroot:+($debian_chroot)}$ps1shorthost \h: \w\a\]$PS1"
 		;;
 	*)
 		;;

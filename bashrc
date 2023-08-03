@@ -186,18 +186,21 @@ if $_islinux; then
 	fi
 
 	if $_isEklient ; then
-	   if [[ -f /etc/debian_version ]] ; then
+	   if [[ -f /etc/lsb-release ]] ; then
+		   ps1host='ubuntu'
+		   ps1shorthost=''
+	   elif [[ -f /etc/debian_version ]] ; then
 		   ps1host='debian'
-		   ps1shorthost='D'
+		   ps1shorthost=''
 	   elif [[ -e /etc/fedora-release ]] ; then
 		   DTMP="$(grep nameserver /etc/resolv.conf)"
 		   export DISPLAY="${DTMP#nameserver }:1.0"
 		   if [[ $(grep 'Fedora release' /etc/fedora-release) ]] ; then
 			   ps1host='fedora'
-			   ps1shorthost='F'
+			   ps1shorthost=''
 		   elif [[ $(grep 'Generic release' /etc/fedora-release) ]] ; then
 			   ps1host='fedoraremix'
-			   ps1shorthost='FR'
+			   ps1shorthost='remix'
 		   else
 			   ps1host='fedoraunknown'
 			   ps1shorthost='FU'

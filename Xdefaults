@@ -1,17 +1,20 @@
 !! Terminal settings
-
 xterm*termName: xterm-256color
 xterm*loginShell: true
 xterm*fastScroll: true
 xterm*saveLines: 65536
 xterm*eightBitInput: false
 !xterm*vt100*geometry: 80x50
-XTerm*decTerminalID: vt340
-XTerm*numColorRegisters: 256
+xterm*decTerminalID: vt340
+xterm*numColorRegisters: 256
+xterm*on2Clicks:  regex [^/@ \n]+
+xterm*on3Clicks:  regex [^ \n]+
+xterm*on4Clicks:  regex [^#$]+
+xterm*on5Clicks:  line
 
 !clipboard from within tmux OSC 52
-!XTerm*disallowedWindowOps: 20,21,SetXprop
-XTerm*disallowedWindowOps: 1,2,3,4,5,6,7,8,9,11,13,19,20,21,GetSelection,SetSelection,SetWinLines,SetXprop
+xterm*disallowedWindowOps: 20,21,SetXprop
+!xterm*disallowedWindowOps: 1,2,3,4,5,6,7,8,9,11,13,19,20,21,GetSelection,SetSelection,SetWinLines,SetXprop
 
 !system clipboard in WSL2
 xterm*selectToClipboard: true
@@ -22,16 +25,15 @@ xterm*visualBellDelay: 100
 xterm*visualBellLine: true
 
 !! Appearance
-
 xterm*borderColor: #000030
 xterm*internalBorder: 1
 xterm*background: black
 xterm*foreground: white
 xterm*scrollBar: false
 
-!! XTerm*faceName: xft:Liberation Mono
-XTerm*faceName: xft:Hack
-XTerm*faceSize: 10
+!! xterm*faceName: xft:Liberation Mono
+xterm*faceName: xft:Hack
+xterm*faceSize: 10
 
 ! VT Font Menu: Unreadable
 xterm*faceSize1: 2

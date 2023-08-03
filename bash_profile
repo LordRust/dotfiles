@@ -67,7 +67,7 @@ if $_iswsl ; then
 fi
 
 if $_islinux ; then
-   [[ (-e /usr/bin/neofetch) && (! -e $HOME/.config/neofetch/nosplash) ]] && neofetch --sixel $HOME/.config/neofetch/os.svg
+   [[ (-e /usr/bin/neofetch) && (! -e $HOME/.config/neofetch/nosplash) && ($TERM == 'xterm-256color') ]] && neofetch --sixel $HOME/.config/neofetch/os.svg
 fi
 
 if $_isosx; then

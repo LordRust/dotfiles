@@ -188,18 +188,23 @@ if $_islinux; then
 	if $_isEklient ; then
 	   if [[ -f /etc/debian_version ]] ; then
 		   ps1host='debian'
+		   ps1shorthost='D'
 	   elif [[ -e /etc/fedora-release ]] ; then
 		   DTMP="$(grep nameserver /etc/resolv.conf)"
 		   export DISPLAY="${DTMP#nameserver }:1.0"
 		   if [[ $(grep 'Fedora release' /etc/fedora-release) ]] ; then
 			   ps1host='fedora'
+			   ps1shorthost='F'
 		   elif [[ $(grep 'Generic release' /etc/fedora-release) ]] ; then
 			   ps1host='fedoraremix'
+			   ps1shorthost='FR'
 		   else
 			   ps1host='fedoraunknown'
+			   ps1shorthost='FU'
 		   fi
 	   else
 		   ps1host=$(hostname)
+		   ps1shorthost='U'
 	   fi
 	else
 		ps1host=$(hostname)
@@ -214,7 +219,8 @@ if $_islinux; then
 	# If this is an xterm set the title to user@host:dir
 	case "$TERM" in
 	xterm*|rxvt*)
-		PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+#		PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+		PS1="\[\e]0;${debian_chroot:+($debian_chroot)}$ps1host \h: \w\a\]$PS1"
 		;;
 	*)
 		;;

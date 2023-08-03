@@ -13,6 +13,7 @@ xterm*on4Clicks:  regex [^#$]+
 xterm*on5Clicks:  line
 
 !clipboard from within tmux OSC 52
+xterm*allowWindowOps: true
 xterm*disallowedWindowOps: 20,21,SetXprop
 !xterm*disallowedWindowOps: 1,2,3,4,5,6,7,8,9,11,13,19,20,21,GetSelection,SetSelection,SetWinLines,SetXprop
 

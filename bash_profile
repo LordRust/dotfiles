@@ -8,31 +8,15 @@ if [ -f ~/.bashrc ] ; then
     source ~/.bashrc
 fi
 
-# ~/.profile: executed by the command interpreter for login shells.
-# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
-# exists.
-# see /usr/share/doc/bash/examples/startup-files for examples.
-# the files are located in the bash-doc package.
-
 # the default umask is set in /etc/profile; for setting the umask
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-# if running bash
-#if [ -n "$BASH_VERSION" ]; then
-#    # include .bashrc if it exists
-#    if [ -f "$HOME/.bashrc" ]; then
-#        . "$HOME/.bashrc"
-#    fi
-#fi
 
 # Always loaded environment variables
 export PAGER=less
 export LESS='RiMn'
 
-_isbioinf=false
-[[ "$(hostname -s)" =~ fbtserver|s-calc-fat01-p|s-sdi-calc[1..2]-p ]] && _isbioinf=true
-[[ "$(whoami)" =~ jlr ]] && _isbioinf=true
 _islinux=false
 [[ "$(uname -s)" =~ Linux|GNU|GNU/* ]] && _islinux=true
 _isosx=false
@@ -46,7 +30,7 @@ _iscmd=false
 _iscoco=false
 [[ "$(hostname -s)" =~ coco ]] && _iscoco=true
 _ishopper=false
-[[ "$(hostname -s)" =~ rs-fs1|rs-fe1 ]] && _ishopper=true
+[[ "$(hostname -s)" =~ rs-fs1|rs-fe1|rs-fs2 ]] && _ishopper=true
 _iswsl=false
 if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then _iswsl=true ; fi
 
@@ -78,28 +62,15 @@ if $_isosx; then
 fi
 
 if $_iscmd; then
-	# export PATH="$HOME/.linuxbrew/bin:$HOME/.local/bin:$PATH"
 	export PATH="$HOME/.local/bin:$PATH:/usr/local/go/bin"
-	# export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-	# export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
-	# source tab-qiime
 	module load use.own
 	# module load cmd
 	# module load conda/miniconda3
 fi
 
-if $_isbioinf; then
-	:
-fi
-
 if $_iscygwin; then
-	# export LC_ALL=en_US.UTF-8:${LC_ALL}
-	# export LANG=en_US.UTF-8:${LANG}
 	export LANGUAGE=en
-	# export LOCAL=Een_US.UTF-8:${LOCALE}
-	# export LC_CTYPE=en_US.UTF-8:${LC_CTYPE}
 	export DISPLAY=:0.0
-
 fi
 
 if $_iscoco; then
@@ -147,22 +118,6 @@ if $_iscoco; then
     #export PATH="/home/jb/anaconda3/bin:$PATH"
 fi
 
-if [[ "$(hostname -s)" =~ s-calc-fat01-p ]]; then
-
-	export HOMEBREW_GITHUB_API_TOKEN=a04f9a35e9271724e0e9b0355aa849708d4896de
-
-	#R libraries
-	export R_LIBS_USER=${TOOLS}/lib/R
-
-	#Language
-	export LANG=${LANG}:en_US.UTF-8
-	export LC_ALL=en_US.UTF-8
-
-	#Python libraries
-	#export PYTHONPATH=${PYTHONPATH}:${TOOLS}/git.repositories/LS-BSR
-
-	export TZ="Europe/Copenhagen"
-fi
 
 if $_ishopper; then
 	export LANG=en_US.UTF-8

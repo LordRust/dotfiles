@@ -8,6 +8,32 @@ case $- in
       *) return;;
 esac
 
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then
+    for rc in ~/.bashrc.d/*; do
+        if [ -f "$rc" ]; then
+            . "$rc"
+        fi
+    done
+fi
+
+unset rc
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+
 # remove XON/XOFF
    stty -ixon
 
@@ -77,44 +103,7 @@ fi
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    #alias grep='grep --color=auto'
-    #alias fgrep='fgrep --color=auto'
-    #alias egrep='egrep --color=auto'
 fi
-
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-#if ! shopt -oq posix; then
-#  if [ -f /usr/share/bash-completion/bash_completion ]; then
-#    . /usr/share/bash-completion/bash_completion
-#  elif [ -f /etc/bash_completion ]; then
-#    . /etc/bash_completion
-#  fi
-#fi
-#
-# If the current shell is already multiplexed, I will not create a new
-# tmux session. If the current shell session is a remote one, and at
-# least one tmux session is already running on that machine, I will
-# simply attach to the most recent one. Otherwise, yes, I will start a
-# new tmux session for every new shell session.
-#[ ! "$TMUX" ] &&
-#    ([ "$SSH_CONNECTION" ] && tmux -2 attach || tmux -2 new) &&
-#    [ ! -e /tmp/dontquit ] && exit 0
 
 
 ####################
@@ -280,11 +269,6 @@ if $_iscoco; then
     if [ -t 1 ]; then
    	    cd ~
     fi
-    # export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
-	# export LIBGL_ALWAYS_INDIRECT=1
-
-	# export DISPLAY=:0
-	# source /home/jb/miniconda3/etc/profile.d/conda.sh
 	# >>> conda initialize >>>
 	# !! Contents within this block are managed by 'conda init' !!
 	__conda_setup="$('/home/jb/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
@@ -335,10 +319,6 @@ if $_isRS; then
 	fi
 	unset __conda_setup
 	# <<< conda initialize <<<
-#    PERL5LIB="/home/jonas/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-#    PERL_LOCAL_LIB_ROOT="/home/jonas/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-#    PERL_MB_OPT="--install_base \"/home/jonas/perl5\""; export PERL_MB_OPT;
-#    PERL_MM_OPT="INSTALL_BASE=/home/jonas/perl5"; export PERL_MM_OPT;
 
 	 export TMUX_TMPDIR=$HOME/.local/tmp
 

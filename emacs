@@ -192,7 +192,8 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 ;; load nextflow mode.
-(load "nextflow-mode") ;; best not to include the ending “.el” or “.elc”
+(when (load "nextflow-mode" t)
+	  (load "nextflow-mode")) ;; best not to include the ending “.el” or “.elc”
 
 ;; use cperl-mode instead of perl-mode
 (setq auto-mode-alist (rassq-delete-all 'perl-mode auto-mode-alist))

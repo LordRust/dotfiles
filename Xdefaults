@@ -7,10 +7,27 @@ xterm*eightBitInput: false
 !xterm*vt100*geometry: 80x50
 xterm*decTerminalID: vt340
 xterm*numColorRegisters: 256
-xterm*on2Clicks:  regex [^/@ \n]+
-xterm*on3Clicks:  regex [^ \n]+
-xterm*on4Clicks:  regex [^#$]+
-xterm*on5Clicks:  line
+
+xterm*.cutNewLine: false
+!xterm*.cutToBeginningOfLine: false
+xterm*.charClass: 33:48,35:48,37:48,42:48,45-47:48,64:48,95:48,126:48
+! Use character classes be part of selection.
+! 48 ==standard alphanumeric selection
+! 33:48 == make 33 act like 48
+! 33 = !
+! 35 = #
+! 37 = %
+! 38 = &
+! 42-47 = * + , - . /
+! 63 = ?
+! 64 = @
+! 95 = _
+! 126 = ~
+
+!xterm*on2Clicks:  regex [^/@ \n]+
+!xterm*on3Clicks:  regex [^ \n]+
+!xterm*on4Clicks:  regex [^#$]+
+!xterm*on5Clicks:  line
 
 !clipboard from within tmux OSC 52
 xterm*allowWindowOps: true

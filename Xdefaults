@@ -10,7 +10,8 @@ xterm*numColorRegisters: 256
 
 xterm*.cutNewLine: false
 !xterm*.cutToBeginningOfLine: false
-xterm*.charClass: 33:48,35:48,37:48,42:48,45-47:48,64:48,95:48,126:48
+!xterm*.charClass: 33:48,35:48,37:48,42:48,45-47:48,64:48,95:48,126:48
+xterm*.charClass: 33:48,35:48,37:48,45-47:48,64:48,95:48,126:48
 ! Use character classes be part of selection.
 ! 48 ==standard alphanumeric selection
 ! 33:48 == make 33 act like 48

@@ -122,7 +122,7 @@ _isEklient=false
 _isRS=false
 [[ "$(hostname -s)" =~ MTLUCMDS1|MTLUCMDS2 ]] && _isRS=true
 _ishopper=false
-[[ "$(hostname -s)" =~ rs-fs[1..2]|rs-fe1|rs-n[1..32] ]] && _ishopper=true
+[[ "$(hostname -s)" =~ rs-fs[1-2]|rs-fe1|rs-n[1-3] ]] && _ishopper=true
 
 
 # Linux

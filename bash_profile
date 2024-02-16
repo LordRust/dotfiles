@@ -30,7 +30,7 @@ _iscmd=false
 _iscoco=false
 [[ "$(hostname -s)" =~ coco ]] && _iscoco=true
 _ishopper=false
-[[ "$(hostname -s)" =~ rs-fs[1..2]|rs-fe1|rs-n[1..32] ]] && _ishopper=true
+[[ "$(hostname -s)" =~ rs-fs[1-2]|rs-fe1|rs-n[1-3] ]] && _ishopper=true
 _iswsl=false
 if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then _iswsl=true ; fi
 

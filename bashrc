@@ -293,7 +293,8 @@ if $_iscoco; then
 fi
 
 if $_ist14s ; then
-   eval "$(/home/jonas/mambaforge/bin/conda shell.bash hook)"
+   # eval "$(/home/jonas/mambaforge/bin/conda shell.bash hook)"
+   eval "$(/home/jonas/miniforge3/bin/conda shell.bash hook)"
 fi
 
 

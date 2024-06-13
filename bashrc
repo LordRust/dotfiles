@@ -229,6 +229,8 @@ if $_islinux; then
 	export LESS_TERMCAP_so=$'\E[7m'
 	#  exit_standout_mode normal
 	export LESS_TERMCAP_se=$'\E[27m'
+	# time format
+	export TIME_STYLE=long-iso
 fi
 
 #Bioinf

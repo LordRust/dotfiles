@@ -13,6 +13,8 @@ _iscmd=false
 [[ "$(hostname)" =~ MTLUCMDS1|RS30134699|RS30134650|RS30090329|RS30106828|RS30135183|MTLUCMDS2|mtlucmds2|rs-fs1|rs-fe1 ]] && _iscmd=true
 _ishopper=false
 [[ "$(hostname -s)" =~ rs-fs[1-2]|rs-fe1|rs-n[1-3] ]] && _ishopper=true
+_isnixos=false
+[[ "$(hostname -s)" =~ nixos ]] && _isnixos=true
 
 # Aliases for all platforms
 alias s='cd ..'

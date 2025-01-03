@@ -123,7 +123,8 @@ _isRS=false
 [[ "$(hostname -s)" =~ MTLUCMDS1|MTLUCMDS2 ]] && _isRS=true
 _ishopper=false
 [[ "$(hostname -s)" =~ rs-fs[1-2]|rs-fe1|rs-n[1-3] ]] && _ishopper=true
-
+_isnixos=false
+[[ "$(hostname -s)" =~ nixos ]] && _isnixos=true
 
 # Linux
 if $_islinux; then

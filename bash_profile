@@ -33,6 +33,8 @@ _ishopper=false
 [[ "$(hostname -s)" =~ rs-fs[1-2]|rs-fe1|rs-n[1-3] ]] && _ishopper=true
 _iswsl=false
 if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null ; then _iswsl=true ; fi
+_isnixos=false
+[[ "$(hostname -s)" =~ nixos ]] && _isnixos=true
 
 #always complete cd with directories only
 complete -d cd
@@ -52,7 +54,13 @@ fi
 
 if $_islinux ; then
    # [[ (-e /usr/bin/neofetch) && (! -e $HOME/.config/neofetch/nosplash) && ($TERM == 'xterm-256color') ]] && neofetch --sixel $HOME/.config/neofetch/os.svg
-   [[ (-e /usr/bin/neofetch) && (! -e $HOME/.config/neofetch/nosplash) && ($TERM == 'xterm-256color') ]] && neofetch
+   # [[ (-e /usr/bin/neofetch) && (! -e $HOME/.config/neofetch/nosplash) && ($TERM == 'xterm-256color') ]] && neofetch
+    [[ ( $(which neofetch 2> /dev/null) != '' ) && (! -e $HOME/.config/neofetch/nosplash) && ($TERM == 'xterm-256color') ]] && neofetch
+fi
+
+if $_isnixos ; then
+    # [[ ( $(which neofetch 2> /dev/null) != '' ) && (! -e $HOME/.config/neofetch/nosplash) && ($TERM == 'xterm-256color') ]] && neofetch
+    :
 fi
 
 if $_isosx; then

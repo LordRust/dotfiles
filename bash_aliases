@@ -45,6 +45,7 @@ if $_islinux||$_iscygwin ; then
 	alias pdf2png='parallel "convert -verbose -density 150 -trim {} -quality 100 -sharpen 0x1.0 {.}.png" :::'
 	alias aptupdate='sudo apt-get update && sudo apt-get upgrade'
 	alias vboxfix='killall VBoxClient;VBoxClient-all'
+	alias mamba-envs='active_mamba_path=$(which mamba | sed "s/\/bin\/mamba//"); active_envs_path="$active_mamba_path/envs"; mamba env list | grep "$active_envs_path"'
 	function ct() { column -tns $'\t' "$@" ; }
 	function ctt() { column -tns $'\t' "$@" | less -S ; }
 	function bless() { iconv -f iso-8859-1 -t UTF-8 "$@" | less; }
@@ -101,6 +102,7 @@ if $_iscmd; then
    alias sshfs1='ssh -Y rs-fs1.lunarc.lu.se'
    alias nfq='sudo /fs1/bjorn/bnf-scripts/nfq'
    alias jbmamba='source ~/share/jbmamba.sh'
+   alias jbmamba2='source ~/share/jbmamba2.sh'
    alias squeue='squeue -o "%7i %7u %.8M %.10l %20j %2t %.8M %7P %.5Q %.5m %2C %19S %6E %13R" --sort=-S,p,i'
    alias  squeuelong='squeue -o "%7i %7u %.8M %.10l %60j %2t %13P %.5Q %.5m %2C %19S %6E %R" --sort=-S,p,i'
    # alias squeue='squeue -o "%8i %12u %.8M %30j %3t %12P %.5Q %.6m %2C %6E %13R" --sort=-S,p,i'

@@ -57,6 +57,7 @@ if $_islinux||$_iscygwin ; then
 	alias sd='conda deactivate'
 	alias ma='mamba activate'
 	alias md='mamba deactivate'
+	alias fz='history|fzf'
 	alias findrecurserev='find . -type f -printf "%T+ %p\n" | sort -n'
 	alias running_services='systemctl list-units  --type=service  --state=running'
 	alias x11keyboard='setxkbmap -model pc105 -layout us,se -option grp:ctrls_toggle'

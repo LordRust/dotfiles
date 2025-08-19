@@ -235,6 +235,12 @@ if $_islinux; then
 	export LESS_TERMCAP_se=$'\E[27m'
 	# time format
 	export TIME_STYLE=long-iso
+
+	# Set up fzf key bindings and fuzzy completion
+	if [[ -f $(command -v fzf)  ]] ; then
+		export FZF_DEFAULT_OPTS='--height 100%'
+		eval "$(fzf --bash)"
+	fi
 fi
 
 #Bioinf

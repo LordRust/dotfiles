@@ -56,7 +56,7 @@ if $_islinux ; then
    # [[ (-e /usr/bin/neofetch) && (! -e $HOME/.config/neofetch/nosplash) && ($TERM == 'xterm-256color') ]] && neofetch --sixel $HOME/.config/neofetch/os.svg
    # [[ (-e /usr/bin/neofetch) && (! -e $HOME/.config/neofetch/nosplash) && ($TERM == 'xterm-256color') ]] && neofetch
     [[ ( $(which neofetch 2> /dev/null) != '' ) && (! -e $HOME/.config/neofetch/nosplash) && ($TERM == 'xterm-256color') ]] && neofetch
-    [[ ( $(which fastfetch 2> /dev/null) != '' ) && (! -e $HOME/.config/fastfetch/nosplash) && ($TERM == 'xterm-256color') ]] && fastfetch -c $HOME/.config/fastfetch/jonas.jsonc
+    [[ ( $(which fastfetch 2> /dev/null) != '' ) && (! -e $HOME/.config/fastfetch/nosplash) && ($TERM == 'xterm-256color') ]] && fastfetch -c $HOME/.config/fastfetch/config.jsonc
 fi
 
 if $_isnixos ; then

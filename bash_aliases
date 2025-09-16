@@ -32,8 +32,9 @@ alias bc='bc -lq'
 
 # platform specific aliases
 if $_islinux||$_iscygwin ; then
+    alias please='sudo $(history -p \!\!)'
     alias zzvmstat='vmstat -w -a -S M 2'
-	alias zziostat='iostat -m -N -y 2'
+    alias zziostat='iostat -m -N -y 2'
 	alias zzdropcaches='sudo sh -c “echo 3 > /proc/sys/vm/drop_caches”'
 	alias em='emacs -nw'
 	alias emw='emacs'
@@ -66,13 +67,13 @@ if $_islinux||$_iscygwin ; then
 	function idletty()
 	{
 		who -s | awk '{ print $2 }' | \
-		(cd /dev && xargs stat -c '%n %U %X') | \
-		awk '{ print $1"\t"$2"\t"('"$(date +%s)"'-$3)/60 }' | \
-		sort -n -r -k 3
+			(cd /dev && xargs stat -c '%n %U %X') | \
+			awk '{ print $1"\t"$2"\t"('"$(date +%s)"'-$3)/60 }' | \
+			sort -n -r -k 3
 	}
 	function pidtime()
 	{
-   	for i in "$@"
+   		for i in "$@"
    	do
 		for j in $(pidof $i)
       		do

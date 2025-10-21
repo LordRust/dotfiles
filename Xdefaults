@@ -5,7 +5,7 @@ xterm*fastScroll: true
 xterm*saveLines: 65536
 xterm*eightBitInput: false
 !xterm*vt100*geometry: 80x50
-xterm*geometry: 132x40
+xterm*vt100*geometry: 132x40
 xterm*decTerminalID: vt340
 xterm*numColorRegisters: 256
 

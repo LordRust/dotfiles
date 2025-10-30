@@ -1,6 +1,3 @@
-_isbioinf=false
-[[ "$(hostname -s)" =~ fbtserver|s-sdi-calc[1..5]-p ]] && _isbioinf=true
-[[ "$(whoami)" =~ jlr ]] && _isbioinf=true
 _islinux=false
 [[ "$(uname -s)" =~ Linux|GNU|GNU/* ]] && _islinux=true # also includes Windows 10 - Ubuntu 
 _isosx=false
@@ -117,23 +114,6 @@ fi
 
 if $_ishopper ; then
    	function ctt() { column -ts $'\t' "$@" | less -S ; }
-fi
-
-if $_isbioinf; then
-	alias rmiseq='rdesktop -u sbsuser -d HWI-M01940 -p sbs123 -r clipboard:PRIMARYCLIPBOARD -C -a 8 -g 1280x1024 10.30.6.40'
-	alias sw='seaview -lengths'
-	alias srvbion='ssh -X -p 2222 jlr@172.16.0.47'
-	alias sshfat01='ssh -Y jlr@s-calc-fat01-p.ssi.ad'	
-	alias sshcalc1='ssh -Y jlr@s-sdi-calc1-p.ssi.ad'
-	alias sshcalc2='ssh -Y jlr@s-sdi-calc2-p.ssi.ad'
-	alias sshcalc3='ssh -Y jlr@s-sdi-calc3-p.ssi.ad'
-	alias sshcalc4='ssh -Y jlr@s-sdi-calc4-p.ssi.ad'
-	alias sshcalc5='ssh -Y jlr@s-sdi-calc5-p.ssi.ad'
-	alias sshce1='ssh -Y jlr@s-bionum-ce1-p'
-	alias sftpliseq='sftp liseq@194.74.226.172:443'
-	alias nasp='module unload nasp ; module load nasp ; nasp'
-#	alias squeue='squeue -o "%.7i %.9P %.50j %.8u %.2t %.10M %.6D %R %m %c"'
-	alias srst2='module unload srst2 ;  module load srst2 ; srst2'
 fi
 
 if $_isosx; then

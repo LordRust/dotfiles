@@ -51,8 +51,8 @@
 (defun scroll-down-one-line()
   (interactive)
   (scroll-down 1))
-(global-set-key [?\C-.] 'scroll-down-one-line)
-(global-set-key [?\C-,] 'scroll-up-one-line)
+(global-set-key [?\M-.] 'scroll-down-one-line)
+(global-set-key [?\M-,] 'scroll-up-one-line)
 
 ;; Uniquify lines functions
 (defun uniquify-region-lines (beg end)

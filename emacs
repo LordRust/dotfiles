@@ -1,3 +1,130 @@
+;; GENERAL SETTINGS
+(setq directory-free-space-program nil) ;; add to your .emacs file. It's because df runs so slowly on NT fs
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(add-to-list 'load-path "~/.emacs.d/lisp/") ;; Tell emacs where is your personal elisp lib dir
+(electric-indent-mode 0)
+
+;; MELPA
+(require 'package) ;; You might already have this line
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/"))
+(when (< emacs-major-version 24)
+  ;; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+(package-initialize) ;; You might already have this line
+
+;; BACKUPS
+(setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
+(setq backup-by-copying t)
+(setq delete-old-versions t
+  kept-new-versions 6
+  kept-old-versions 2
+  version-control t)
+
+;; Enable paren matching
+(show-paren-mode 1)
+
+;; Emable column number in status line
+(setq column-number-mode t)
+
+;; show trailing whitespace
+(setq-default show-trailing-whitespace t)
+
+;; enable line wrap
+(setq default-truncate-lines nil)
+
+;; make side by side buffers function the same as the main window
+(setq truncate-partial-width-windows nil)
+
+;; regexp
+(global-set-key (kbd "C-x C-r") 'replace-regexp)
+
+;; Add F12 to toggle line wrap
+(global-set-key (kbd "<f12>") 'toggle-truncate-lines)
+(defun trunc()
+  (toggle-truncate-lines))
+
+;; Scroll single lines  up or down
+(defun scroll-up-one-line()
+  (interactive)
+  (scroll-up 1))
+(defun scroll-down-one-line()
+  (interactive)
+  (scroll-down 1))
+(global-set-key [?\C-.] 'scroll-down-one-line)
+(global-set-key [?\C-,] 'scroll-up-one-line)
+
+;; Uniquify lines functions
+(defun uniquify-region-lines (beg end)
+    "Remove duplicate adjacent lines in region."
+    (interactive "*r")
+    (save-excursion
+      (goto-char beg)
+      (while (re-search-forward "^\\(.*\n\\)\\1+" end t)
+        (replace-match "\\1"))))
+
+  (defun uniquify-buffer-lines ()
+    "Remove duplicate adjacent lines in the current buffer."
+    (interactive)
+    (uniquify-region-lines (point-min) (point-max)))
+
+(defun uniquify-all-lines-region (start end)
+    "Find duplicate lines in region START to END keeping first occurrence."
+    (interactive "*r")
+    (save-excursion
+      (let ((end (copy-marker end)))
+        (while
+            (progn
+              (goto-char start)
+              (re-search-forward "^\\(.*\\)\n\\(\\(.*\n\\)*\\)\\1\n" end t))
+          (replace-match "\\1\n\\2")))))
+
+  (defun uniquify-all-lines-buffer ()
+    "Delete duplicate lines in buffer and keep first occurrence."
+    (interactive "*")
+    (uniquify-all-lines-region (point-min) (point-max)))
+
+;; ediff
+(defun command-line-diff (switch)
+  (let ((file1 (pop command-line-args-left))
+        (file2 (pop command-line-args-left)))
+    (ediff file1 file2)))
+
+(add-to-list 'command-switch-alist '("diff" . command-line-diff)) ;; Usage: emacs -diff file1 file2
+
+;; Standard Jedi.el setting
+;;(add-hook 'python-mode-hook 'jedi:setup)
+;;(setq jedi:complete-on-dot t)
+
+;; Type:
+;;     M-x package-install RET jedi RET
+;;     M-x jedi:install-server RET
+;; Then open Python file.
+
+;; IDO
+(require 'ido)
+(ido-mode t)
+
+
+;; load nextflow mode.
+(when (load "nextflow-mode" t)
+	  (load "nextflow-mode")) ;; best not to include the ending “.el” or “.elc”
+
+;; use cperl-mode instead of perl-mode
+(setq auto-mode-alist (rassq-delete-all 'perl-mode auto-mode-alist))
+(add-to-list 'auto-mode-alist '("\\.\\(p\\([lm]\\)\\)\\'" . cperl-mode))
+
+(setq interpreter-mode-alist (rassq-delete-all 'perl-mode interpreter-mode-alist))
+(add-to-list 'interpreter-mode-alist '("perl" . cperl-mode))
+(add-to-list 'interpreter-mode-alist '("perl5" . cperl-mode))
+(add-to-list 'interpreter-mode-alist '("miniperl" . cperl-mode))
+(custom-set-faces
+ '(cperl-array-face ((t (:weight normal))))
+ '(cperl-hash-face ((t (:weight normal))))
+)
+
+
+;; Theses are set via the emacs settings menus
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -89,129 +216,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-(setq directory-free-space-program nil) ;; add to your .emacs file. It's because df runs so slowly on NT fs
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(electric-indent-mode 0)
-
-;; MELPA
-(require 'package) ;; You might already have this line
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/"))
-(when (< emacs-major-version 24)
-  ;; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
-(package-initialize) ;; You might already have this line
-
-;; Standard Jedi.el setting
-;;(add-hook 'python-mode-hook 'jedi:setup)
-;;(setq jedi:complete-on-dot t)
-
-;; Type:
-;;     M-x package-install RET jedi RET
-;;     M-x jedi:install-server RET
-;; Then open Python file.
-
-;; IDO
-(require 'ido)
-(ido-mode t)
-
-;; Enable paren matching
-(show-paren-mode 1)
-
-;; Emable column number in status line
-(setq column-number-mode t)
-
-;; show trailing whitespace
-(setq-default show-trailing-whitespace t)
-
-;; enable line wrap
-(setq default-truncate-lines nil)
-
-;; make side by side buffers function the same as the main window
-(setq truncate-partial-width-windows nil)
-
-;; regexp
-(global-set-key (kbd "C-x C-r") 'replace-regexp)
-
-;; Add F12 to toggle line wrap
-(global-set-key (kbd "<f12>") 'toggle-truncate-lines)
-(defun trunc()
-  (toggle-truncate-lines))
-;; Scroll single lines  up or down
-(defun scroll-up-one-line()
-  (interactive)
-  (scroll-up 1))
-(defun scroll-down-one-line()
-  (interactive)
-  (scroll-down 1))
-(global-set-key [?\C-.] 'scroll-down-one-line)
-(global-set-key [?\C-,] 'scroll-up-one-line)
-
-;; Unique lines
-(defun uniquify-region-lines (beg end)
-    "Remove duplicate adjacent lines in region."
-    (interactive "*r")
-    (save-excursion
-      (goto-char beg)
-      (while (re-search-forward "^\\(.*\n\\)\\1+" end t)
-        (replace-match "\\1"))))
-  
-  (defun uniquify-buffer-lines ()
-    "Remove duplicate adjacent lines in the current buffer."
-    (interactive)
-    (uniquify-region-lines (point-min) (point-max)))
-
-(defun uniquify-all-lines-region (start end)
-    "Find duplicate lines in region START to END keeping first occurrence."
-    (interactive "*r")
-    (save-excursion
-      (let ((end (copy-marker end)))
-        (while
-            (progn
-              (goto-char start)
-              (re-search-forward "^\\(.*\\)\n\\(\\(.*\n\\)*\\)\\1\n" end t))
-          (replace-match "\\1\n\\2")))))
-  
-  (defun uniquify-all-lines-buffer ()
-    "Delete duplicate lines in buffer and keep first occurrence."
-    (interactive "*")
-    (uniquify-all-lines-region (point-min) (point-max)))
-
-;; ediff
-(defun command-line-diff (switch)
-  (let ((file1 (pop command-line-args-left))
-        (file2 (pop command-line-args-left)))
-    (ediff file1 file2)))
-
-(add-to-list 'command-switch-alist '("diff" . command-line-diff))
-
-;; Usage: emacs -diff file1 file2
-
-;; Tell emacs where is your personal elisp lib dir
-(add-to-list 'load-path "~/.emacs.d/lisp/")
-
-;; load nextflow mode.
-(when (load "nextflow-mode" t)
-	  (load "nextflow-mode")) ;; best not to include the ending “.el” or “.elc”
-
-;; use cperl-mode instead of perl-mode
-(setq auto-mode-alist (rassq-delete-all 'perl-mode auto-mode-alist))
-(add-to-list 'auto-mode-alist '("\\.\\(p\\([lm]\\)\\)\\'" . cperl-mode))
-
-(setq interpreter-mode-alist (rassq-delete-all 'perl-mode interpreter-mode-alist))
-(add-to-list 'interpreter-mode-alist '("perl" . cperl-mode))
-(add-to-list 'interpreter-mode-alist '("perl5" . cperl-mode))
-(add-to-list 'interpreter-mode-alist '("miniperl" . cperl-mode))
-(custom-set-faces
- '(cperl-array-face ((t (:weight normal))))
- '(cperl-hash-face ((t (:weight normal))))
-)
-
-;; backups
-(setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
-(setq backup-by-copying t)
-(setq delete-old-versions t
-  kept-new-versions 6
-  kept-old-versions 2
-  version-control t)

@@ -1,4 +1,4 @@
-z_islinux=false
+_islinux=false
 [[ "$(uname -s)" =~ Linux|GNU|GNU/* ]] && _islinux=true # also includes Windows 10 - Ubuntu 
 _isosx=false
 [[ "$(uname -s)" =~ Darwin ]] && _isosx=true

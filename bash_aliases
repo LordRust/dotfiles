@@ -1,4 +1,4 @@
-_islinux=false
+z_islinux=false
 [[ "$(uname -s)" =~ Linux|GNU|GNU/* ]] && _islinux=true # also includes Windows 10 - Ubuntu 
 _isosx=false
 [[ "$(uname -s)" =~ Darwin ]] && _isosx=true
@@ -102,7 +102,7 @@ if $_iscmd; then
    alias nfq='sudo /fs1/bjorn/bnf-scripts/nfq'
    alias jbmamba='source ~/share/jbmamba.sh'
    alias squeue='squeue -o "%7i %7u %.8M %.10l %20j %2t %.8M %7P %.5Q %.5m %2C %19S %6E %13R" --sort=-S,p,i'
-   alias  squeuelong='squeue -o "%7i %7u %.8M %.10l %60j %2t %13P %.5Q %.5m %2C %19S %6E %R" --sort=-S,p,i'
+   alias squeuelong='squeue -o "%7i %7u %.8M %.10l %55j %2t %13P %.5Q %.5m %2C %19S %6E %R" --sort=-S,p,i'
    alias psj='ps -ajHfu jonas|less'
    # alias squeue='squeue -o "%8i %12u %.8M %30j %3t %12P %.5Q %.6m %2C %6E %13R" --sort=-S,p,i'
 
@@ -113,6 +113,7 @@ if $_iscmd; then
 fi
 
 if $_ishopper ; then
+	function ct() { column -ts $'\t' "$@" ; }
    	function ctt() { column -ts $'\t' "$@" | less -S ; }
 fi
 

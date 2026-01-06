@@ -12,6 +12,8 @@ _ishopper=false
 [[ "$(hostname -s)" =~ rs-fs[1-2]|rs-fe1|rs-n[1-3] ]] && _ishopper=true
 _isnixos=false
 [[ "$(hostname -s)" =~ nixos ]] && _isnixos=true
+_iscoco=false
+[[ "$(hostname -s)" =~ t14s ]] && _iscoco=true
 
 # Aliases for all platforms
 alias s='cd ..'
@@ -113,6 +115,11 @@ if $_iscmd; then
 fi
 
 if $_ishopper ; then
+	function ct() { column -ts $'\t' "$@" ; }
+   	function ctt() { column -ts $'\t' "$@" | less -S ; }
+fi
+
+if $_iscoco ; then
 	function ct() { column -ts $'\t' "$@" ; }
    	function ctt() { column -ts $'\t' "$@" | less -S ; }
 fi

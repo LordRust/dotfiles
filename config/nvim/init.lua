@@ -9,7 +9,9 @@ vim.opt.undofile = true -- undo after quitting and resuing editing
 -- vim.opt.splitbelow = true
 -- vim.opt.splitright = true
 -- vim.opt.path+=**
-vim.cmd('colorscheme koehler')
+-- vim.cmd('colorscheme koehler')
+vim.o.background = 'dark'
+vim.cmd.colorscheme 'tango-dark'
 
 -- vim.g.mapleader = " " -- normal mapleader is \
 

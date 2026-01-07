@@ -158,7 +158,6 @@ if $_islinux; then
 	fi
 
 	# Different colors for different hosts
-	_isbioinf=false
     if [[ "$(hostname -s)" =~ MTLUCMDS2 ]] ; then
 		HOSTNAMECOLOR='\[\e[01;32m\]'
     elif [[ "$(hostname -s)" =~ MTLUCMDS1 ]] ; then
@@ -243,12 +242,10 @@ if $_islinux; then
 	fi
 fi
 
-#Bioinf
-#if $_isbioinf; then
-    export EDITOR='emacs -nw'
+# Default editor
+    # export EDITOR='emacs -nw'
+    export EDITOR='nvim'
     export VISUAL=$EDITOR
-    export ME='jlr'
-#fi
 
 # Mac OS X
 if $_isosx; then

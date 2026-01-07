@@ -37,6 +37,10 @@ if $_islinux||$_iscygwin ; then
 	alias zzdropcaches='sudo sh -c “echo 3 > /proc/sys/vm/drop_caches”'
 	alias em='emacs -nw'
 	alias emw='emacs'
+	if [[ ( $(which nvim 2> /dev/null) != '' ) ]] ; then
+		alias vi='nvim'
+		alias vim='nvim'
+	fi
 	alias compc='compgen -A function -abck|grep'
 	alias ls='ls -vCF --color=auto'
 	alias parallel='parallel --gnu'

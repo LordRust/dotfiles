@@ -1,7 +1,7 @@
 [push]
 	default = simple
 [user]
-	name = lordrust
+	name = LordRust
 	email = jonas@cloud8.se
 [core]
 	editor = vi

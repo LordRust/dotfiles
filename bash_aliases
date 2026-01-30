@@ -57,6 +57,12 @@ if $_islinux||$_iscygwin ; then
 	# alias go='gnome-open'
 	alias tmux="TERM=screen-256color tmux"
 	alias bfix="source ~/bin/tmuxreconnect"
+	fixx() {
+		# -s gives us the 'export VAR=VAL' syntax
+		# We grep only for the specific variables we want to restore
+		eval $(tmux show-environment -s | grep -E '^(DISPLAY|DBUS_SESSION_BUS_ADDRESS)=')
+		echo "Environment synced. DISPLAY is now: $DISPLAY"
+	}
 	alias sa='conda activate'
 	alias sd='conda deactivate'
 	alias ma='mamba activate'

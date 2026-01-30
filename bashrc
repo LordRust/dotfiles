@@ -158,9 +158,9 @@ if $_islinux; then
 	fi
 
 	# Different colors for different hosts
-    if [[ "$(hostname -s)" =~ MTLUCMDS2 ]] ; then
+	if [[ "$(hostname -s)" =~ MTLUCMDS2 ]] ; then
 		HOSTNAMECOLOR='\[\e[01;32m\]'
-    elif [[ "$(hostname -s)" =~ MTLUCMDS1 ]] ; then
+	elif [[ "$(hostname -s)" =~ MTLUCMDS1 ]] ; then
 		HOSTNAMECOLOR='\[\e[01;33m\]'
 	elif [[ $_iscoco = 'true' ]] || [[ $_ist14s = 'true' ]] ; then
 		HOSTNAMECOLOR='\[\e[01;32m\]'
@@ -170,7 +170,7 @@ if $_islinux; then
 		HOSTNAMECOLOR='\[\e[01m\]'
 	fi
 	if $_isRS ; then
-	    USERCOLOR='\[\e[01;33m\]'
+		USERCOLOR='\[\e[01;33m\]'
 	elif $_ishopper ; then
 		USERCOLOR='\[\e[01;34m\]'
 	else
@@ -178,29 +178,29 @@ if $_islinux; then
 	fi
 
 	if $_isEklient ; then
-	   if [[ -f /etc/lsb-release ]] ; then
-		   ps1host='ubuntu'
-		   ps1shorthost=''
-	   elif [[ -f /etc/debian_version ]] ; then
-		   ps1host='debian'
-		   ps1shorthost=''
-	   elif [[ -e /etc/fedora-release ]] ; then
-		   DTMP="$(grep nameserver /etc/resolv.conf)"
-		   export DISPLAY="${DTMP#nameserver }:1.0"
-		   if [[ $(grep 'Fedora release' /etc/fedora-release) ]] ; then
-			   ps1host='fedora'
-			   ps1shorthost=''
-		   elif [[ $(grep 'Generic release' /etc/fedora-release) ]] ; then
-			   ps1host='fedoraremix'
-			   ps1shorthost='remix'
-		   else
-			   ps1host='fedoraunknown'
-			   ps1shorthost='FU'
-		   fi
-	   else
-		   ps1host=$(hostname)
-		   ps1shorthost='U'
-	   fi
+		if [[ -f /etc/lsb-release ]] ; then
+			ps1host='ubuntu'
+			ps1shorthost=''
+		elif [[ -f /etc/debian_version ]] ; then
+			ps1host='debian'
+			ps1shorthost=''
+		elif [[ -e /etc/fedora-release ]] ; then
+			DTMP="$(grep nameserver /etc/resolv.conf)"
+			export DISPLAY="${DTMP#nameserver }:1.0"
+			if [[ $(grep 'Fedora release' /etc/fedora-release) ]] ; then
+				ps1host='fedora'
+				ps1shorthost=''
+			elif [[ $(grep 'Generic release' /etc/fedora-release) ]] ; then
+				ps1host='fedoraremix'
+				ps1shorthost='remix'
+			else
+				ps1host='fedoraunknown'
+				ps1shorthost='FU'
+			fi
+		else
+			ps1host=$(hostname)
+			ps1shorthost='U'
+		fi
 	else
 		ps1host=$(hostname)
 	fi
@@ -213,18 +213,18 @@ if $_islinux; then
 
 	# If this is an xterm set the title to user@host:dir
 	case "$TERM" in
-	xterm*|rxvt*)
-#		PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-		PS1="\[\e]0;${debian_chroot:+($debian_chroot)}$ps1shorthost \h: \w\a\]$PS1"
-		;;
-	*)
-		;;
+		xterm*|rxvt*)
+			#		PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+			PS1="\[\e]0;${debian_chroot:+($debian_chroot)}$ps1shorthost \h: \w\a\]$PS1"
+			;;
+		*)
+			;;
 	esac
 
 	# Use git prompt
 	if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
-    GIT_PROMPT_ONLY_IN_REPO=1
-    source $HOME/.bash-git-prompt/gitprompt.sh
+		GIT_PROMPT_ONLY_IN_REPO=1
+		source $HOME/.bash-git-prompt/gitprompt.sh
 	fi
 
 	# Set highligt in less

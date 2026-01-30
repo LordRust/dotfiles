@@ -26,7 +26,7 @@ _isxrunning=false
 _iscygwin=false
 [[ "$(uname -s)" =~ CYGWIN ]] && _iscygwin=true
 _iscmd=false
-[[ "$(hostname -s)" =~ MTLUCMDS1|mtlucmds2|MTLUCMDS2 ]] && _iscmd=true
+[[ "$(hostname -s)" =~ MTLUCMDS1|mtlucmds2|MTLUCMDS2|magrat ]] && _iscmd=true
 _iscoco=false
 [[ "$(hostname -s)" =~ coco ]] && _iscoco=true
 _ishopper=false

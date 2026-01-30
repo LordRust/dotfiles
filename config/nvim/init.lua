@@ -33,7 +33,7 @@ vim.opt.list = true
 
 -- Define listchars: the first char is the lead, second is the filler
 -- Here we set them to simple spaces to keep the UI clean
-vim.opt.listchars = { tab = '  ', trail = '·' }
+vim.opt.listchars = { tab = '>-', trail = '·' }
 
 
 

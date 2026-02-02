@@ -1,5 +1,6 @@
 !! Terminal settings
 xterm*termName: xterm-256color
+!xterm*iconHint: $HOME/.local/os_logo.xpm
 xterm*loginShell: true
 xterm*fastScroll: true
 xterm*saveLines: 65536

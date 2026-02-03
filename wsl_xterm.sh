@@ -1,8 +1,13 @@
 #!/bin/bash
-export DISPLAY="localhost:1.0"
-export DISPLAY="$(ip route list default)"
-export DISPLAY="${DISPLAY#default via }"
-export DISPLAY="${DISPLAY%% *}:1.0"
+
+if [[ $(grep 'systemd=true' /etc/wsl.conf) ]] ; then
+	export DISPLAY="localhost:1.0"
+else
+	export DISPLAY="$(ip route list default)"
+	export DISPLAY="${DISPLAY#default via }"
+	export DISPLAY="${DISPLAY%% *}:1.0"
+fi
+
 #xrdb -cpp /usr/bin/cpp -merge "$HOME/.Xresources"
 #xrdb -merge -I$HOME "$HOME/.Xresources"
 xrdb -merge "$HOME/.Xresources"

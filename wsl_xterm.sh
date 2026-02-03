@@ -1,6 +1,7 @@
 #!/bin/bash
 
-if [[ $(grep 'systemd=true' /etc/wsl.conf) ]] ; then
+#if [[ $(grep 'systemd=true' /etc/wsl.conf) ]] ; then
+if [[ ! $(hostname) == 'RS30166454' ]] ; then
 	export DISPLAY="localhost:1.0"
 else
 	export DISPLAY="$(ip route list default)"

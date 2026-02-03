@@ -73,4 +73,3 @@ newest "$HOME/.dbus/session-bus/*" && . "$_RET"
 export_and_send DBUS_SESSION_BUS_ADDRESS
 export_and_send SESSION_MANAGER
 
-# vi: syntax=sh ts=4 noexpandtab

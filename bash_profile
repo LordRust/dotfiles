@@ -46,12 +46,15 @@ fi
 
 # host specific variables
 if $_iswsl ; then
-    # echo "this is WSL"
-    export LIBGL_ALWAYS_INDIRECT=0
+	# echo "this is WSL"
+	export LIBGL_ALWAYS_INDIRECT=0
 	export GDK_DPI_SCALING=1.25
 	# the next line causes delays due to problems in the communication between
 	# the xserver and the login script. This config can be in the xlaunch instead
-	# setxkbmap -model pc105 -layout us,se -option grp:ctrls_toggle
+	if [ -n "$DISPLAY" ] && [ ! -f "/tmp/.xkb-configured-$DISPLAY" ]; then
+		setxkbmap -model pc105 -layout us,se -option grp:ctrls_toggle
+		touch "/tmp/.xkb-configured-$DISPLAY"
+	fi
 fi
 
 if $_islinux ; then

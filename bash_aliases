@@ -57,6 +57,7 @@ if $_islinux||$_iscygwin ; then
 	# alias go='gnome-open'
 	alias tmux="TERM=screen-256color tmux"
 	alias bfix="source ~/bin/tmuxreconnect"
+	alias fix-clip='eval $(tmux show-environment -s DISPLAY);eval $(tmux show-environment -s DBUS_SESSION_BUS_ADDRESS)'
 	fixx() {
 		# -s gives us the 'export VAR=VAL' syntax
 		# We grep only for the specific variables we want to restore

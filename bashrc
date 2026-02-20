@@ -121,7 +121,7 @@ _iscoco=false
 _ist14s=false
 [[ "$(hostname -s)" =~ t14s ]] && _ist14s=true
 _isEklient=false
-[[ "$(hostname -s)" =~ RS30134650|RS30106828|RS30134699 ]] && _isEklient=true
+[[ "$(hostname -s)" =~ RS30134650|RS30106828|RS30134699|RS30166454 ]] && _isEklient=true
 _isRS=false
 [[ "$(hostname -s)" =~ MTLUCMDS1|MTLUCMDS2 ]] && _isRS=true
 _ishopper=false

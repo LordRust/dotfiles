@@ -201,9 +201,6 @@ if $_islinux; then
 			ps1host=$(hostname)
 			ps1shorthost='U'
 		fi
-		export NVM_DIR="$HOME/.nvm"
-		[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-		[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 	else
 		ps1host=$(hostname)
 	fi
@@ -242,6 +239,12 @@ if $_islinux; then
 	if [[ -f $(command -v fzf)  ]] ; then
 		export FZF_DEFAULT_OPTS='--height 100%'
 		eval "$(fzf --bash)"
+	fi
+	# load nvm if it exists
+	if [[ -d "$HOME/.nvm" ]] ; then
+		export NVM_DIR="$HOME/.nvm"
+		[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+		[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 	fi
 fi
 

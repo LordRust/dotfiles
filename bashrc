@@ -58,31 +58,10 @@ export PROMPT_COMMAND="history -a; history -n; $PROMPT_COMMAND"
 HISTSIZE=10000
 HISTFILESIZE=20000
 
-####################
-## Tab completions #
-####################
-export PKG_CONFIG_PATH=/usr/share/pkgconfig:$PKG_CONFIG_PATH
-# tab loops through alternatives
-# Windows style
-#[[ $- = *i* ]] && bind TAB:menu-complete
-#bind '"\e[Z": complete' #shift-tab to normal bash
-
-bind "TAB:menu-complete"
-bind "set show-all-if-ambiguous on"
-bind "set menu-complete-display-prefix on"
-
-#
-set completion-prefix-display-length 2
-
-# Ignore case when tabbing
-set completion-ignore-case on
-
-# show all ambiguous directly
-set show-all-if-ambiguous on
-set show-all-if-unmodified on
-
-# Treat hyphen and underscore as the same
-set completion-map-case on
+############################################
+## Tab completions - see .inputrc for more #
+############################################
+[[ ! $PKG_CONFIG_PATH =~ "/usr/share/pkgconfig" ]] && export PKG_CONFIG_PATH=/usr/share/pkgconfig:$PKG_CONFIG_PATH
 
 #########
 # Other #

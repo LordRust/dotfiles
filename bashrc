@@ -51,8 +51,14 @@ HISTIGNORE='fz:history'
 # append to the history file, don't overwrite it
 shopt -s histappend
 
-# Sync history between sessions
-export PROMPT_COMMAND="history -a; history -n; $PROMPT_COMMAND"
+# Sync history between sessions without stacking duplicate entries
+if ! declare -F __sync_history >/dev/null; then
+    __sync_history() { history -a; history -n; }
+fi
+case ";$PROMPT_COMMAND;" in
+    *";__sync_history;"*) ;;
+    *) PROMPT_COMMAND="__sync_history${PROMPT_COMMAND:+; $PROMPT_COMMAND}" ;;
+esac
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=10000
@@ -324,4 +330,3 @@ if $_ishopper; then
 	 export TMUX_TMPDIR=$HOME/.local/tmp
     :
 fi
-

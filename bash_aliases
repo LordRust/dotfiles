@@ -34,7 +34,7 @@ if $_islinux||$_iscygwin ; then
     alias please='sudo $(history -p \!\!)'
     alias zzvmstat='vmstat -w -a -S M 2'
     alias zziostat='iostat -m -N -y 2'
-	alias zzdropcaches='sudo sh -c “echo 3 > /proc/sys/vm/drop_caches”'
+	alias zzdropcaches='sudo sh -c "echo 3 > /proc/sys/vm/drop_caches"'
 	alias em='emacs -nw'
 	alias emw='emacs'
 	if [[ ( $(which nvim 2> /dev/null) != '' ) ]] ; then

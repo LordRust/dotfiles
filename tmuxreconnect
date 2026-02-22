@@ -63,13 +63,12 @@ newest() {
 
 
 # Establish gpg-agent socket, helps when reconnecting to a detached session
-newest "$HOME/.gnupg/gpg-agent-info-*" && . "$_RET" && export_and_send GPG_AGENT_INFO
+newest "$HOME"/.gnupg/gpg-agent-info-* && . "$_RET" && export_and_send GPG_AGENT_INFO
 
 # Reconnect dbus, source the most recently touched session-bus
 # Sorry, ls -t is needed here, to sort by time
-newest "$HOME/.dbus/session-bus/*" && . "$_RET"
+newest "$HOME"/.dbus/session-bus/* && . "$_RET"
 
 [ -r "$BYOBU_RUN_DIR/sockets" ] && . "$BYOBU_RUN_DIR/sockets"
 export_and_send DBUS_SESSION_BUS_ADDRESS
 export_and_send SESSION_MANAGER
-

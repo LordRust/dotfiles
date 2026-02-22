@@ -154,7 +154,7 @@ set_var () {
 
 cleanpath () {
 	pathvar_name="$1"
-	if [ -n "pathvar_name" ]; then
+	if [ -n "$pathvar_name" ]; then
 		pathvar_value=
 		old_PATH="$(get_var "$pathvar_name"):"
 		while [ -n "$old_PATH" ]; do

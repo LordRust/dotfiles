@@ -330,3 +330,6 @@ if $_ishopper; then
 	 export TMUX_TMPDIR=$HOME/.local/tmp
     :
 fi
+
+# opencode
+[[ -d $HOME/.opencode/bin ]] && export PATH=$HOME/.opencode/bin:$PATH

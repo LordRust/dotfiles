@@ -32,6 +32,7 @@ xterm*.charClass: 33:48,35:48,37:48,45-47:48,64:48,95:48,126:48
 !xterm*on4Clicks:  regex [^#$]+
 !xterm*on5Clicks:  line
 
+xterm*shiftEscape: false
 !clipboard from within tmux OSC 52
 xterm*allowWindowOps: true
 xterm*disallowedWindowOps: 20,21,SetXprop

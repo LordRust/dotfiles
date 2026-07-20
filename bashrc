@@ -224,6 +224,11 @@ if $_islinux; then
 	if [[ -f $(command -v fzf)  ]] ; then
 		export FZF_DEFAULT_OPTS='--height 100%'
 		eval "$(fzf --bash)"
+		# Use standard bash-completion for ssh instead of fzf completion.
+		complete -r ssh 2>/dev/null
+		if declare -F _completion_loader >/dev/null; then
+			_completion_loader ssh
+		fi
 	fi
 	# load nvm if it exists
 	if [[ -d "$HOME/.nvm" ]] ; then

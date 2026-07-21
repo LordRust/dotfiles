@@ -46,10 +46,12 @@ fi
 HISTCONTROL=ignoreboth
 
 # ignore certain things
-HISTIGNORE='fz:history'
+HISTIGNORE='fz:history:history *'
 
 # append to the history file, don't overwrite it
 shopt -s histappend
+# Store multiline commands as one history entry
+shopt -s cmdhist
 
 # Sync history between sessions without stacking duplicate entries
 if ! declare -F __sync_history >/dev/null; then
